@@ -6,6 +6,14 @@ export default {
       fontFamily: {
         pretendard: ["Pretendard"],
       },
+      colors: {
+        "ppWhite": "#FFFFFF",
+        "ppBlack": "#2A3547",
+        "ppBlue": "#5D87FF",
+        "ppGray": "#5A6A85",
+        "ppLightGray": "#7C8FAC",
+        "ppVeryLightGray": "#868EAB",    
+      },
     },
   },
   plugins: [],
