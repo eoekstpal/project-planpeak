@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface CardProps {
   title: string;
@@ -34,9 +34,9 @@ const Card: React.FC<CardProps> = ({
         <p
           className="overflow-hidden text-base text-gray-700"
           style={{
-            maxHeight: "2.5em",
-            lineHeight: "1.25em",
-            textOverflow: "ellipsis",
+            maxHeight: '2.5em',
+            lineHeight: '1.25em',
+            textOverflow: 'ellipsis',
           }}
         >
           {content}
@@ -44,9 +44,9 @@ const Card: React.FC<CardProps> = ({
         <p
           className="overflow-hidden text-base text-gray-700"
           style={{
-            maxHeight: "1.25em",
-            lineHeight: "1.25em",
-            textOverflow: "ellipsis",
+            maxHeight: '1.25em',
+            lineHeight: '1.25em',
+            textOverflow: 'ellipsis',
           }}
         >
           {info}
