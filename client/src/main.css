@@ -101,3 +101,8 @@
       url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.ttf') format("truetype");
   font-display: swap;
 }
+header,
+.content {max-width: 1194px; margin: 0 auto;}
+.SideNavCont {display: flex; max-width: 1194px; margin: 0 auto;}
+.SideNavCont nav {width: 25%;}
+.SideNavCont nav + .SideNavCont .container {width: 75%; padding: 40px;}
