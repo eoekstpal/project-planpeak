@@ -1,5 +1,3 @@
-import { Link, Router } from 'react-router-dom';
-
 function Footer() {
   return (
     <footer className="bg-ppLightGray text-white py-5">
