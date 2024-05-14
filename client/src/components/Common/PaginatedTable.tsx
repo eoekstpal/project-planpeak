@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 //데이터 예시
 // const dummyData = [
@@ -7,7 +7,7 @@ import { useState } from "react";
 
 //   ];
 
-const PaginatedTable = ({ data }: { data: string[][] }) => {
+const PaginatedTable = ({ headers, data }: { headers: string[]; data: string[][] }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -21,10 +21,7 @@ const PaginatedTable = ({ data }: { data: string[][] }) => {
 
   return (
     <div>
-      <Table
-        headers={["이름", "연락처", "email"]}
-        data={currentPageData.map((item) => item)}
-      />
+      <Table headers={headers} data={currentPageData.map((item) => item)} />
 
       <Pagination
         currentPage={currentPage}
@@ -43,26 +40,24 @@ const Table = ({ headers, data }: { headers: string[]; data: string[][] }) => {
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
-            {headers.map((header, index) => (
-              <th
-                key={index}
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-              >
-                {header}
-              </th>
-            ))}
+            {headers &&
+              headers.map((header, index) => (
+                <th
+                  key={index}
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                >
+                  {header}
+                </th>
+              ))}
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
           {data.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  className="whitespace-nowrap px-6 py-4 text-sm text-gray-500"
-                >
-                  {cell}
+                <td key={cellIndex} className=" whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                  <div className=" flex flex-row items-center"> {cell}</div>
                 </td>
               ))}
             </tr>
@@ -77,17 +72,13 @@ import {
   IconChevronsRight,
   IconChevronLeft,
   IconChevronRight,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 };
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: PaginationProps) => {
+const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const pages = [];
   let startPage = 1;
   let endPage = totalPages;
@@ -133,9 +124,7 @@ const Pagination = ({
         onClick={goToFirstPage}
         disabled={currentPage === 1}
         className={`${
-          currentPage === 1
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } rounded-l border border-gray-300 px-3 py-1`}
       >
         <IconChevronsLeft />
@@ -144,9 +133,7 @@ const Pagination = ({
         onClick={goToPreviousPage}
         disabled={currentPage === 1}
         className={`${
-          currentPage === 1
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } border border-gray-300 px-3 py-1`}
       >
         <IconChevronLeft />
@@ -156,7 +143,7 @@ const Pagination = ({
           key={page}
           onClick={() => goToPage(page)}
           className={`${
-            currentPage === page ? "bg-gray-200" : "hover:bg-gray-200"
+            currentPage === page ? 'bg-gray-200' : 'hover:bg-gray-200'
           } border border-gray-300 px-3 py-1`}
         >
           {page}
@@ -166,9 +153,7 @@ const Pagination = ({
         onClick={goToNextPage}
         disabled={currentPage === totalPages}
         className={`${
-          currentPage === totalPages
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } border border-gray-300 px-3 py-1`}
       >
         <IconChevronRight />
@@ -177,9 +162,7 @@ const Pagination = ({
         onClick={goToLastPage}
         disabled={currentPage === totalPages}
         className={`${
-          currentPage === totalPages
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } rounded-r border border-gray-300 px-3 py-1`}
       >
         <IconChevronsRight />
