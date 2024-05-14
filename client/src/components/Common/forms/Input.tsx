@@ -1,8 +1,8 @@
 function Input(props: any) {
   return (
-    <label className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden">
+    <label className="block border border-solid border-ppVeryLightGray rounded overflow-hidden">
       <input
-        className="p-2"
+        className="p-2 text-sm"
         type="text"
         name={props.name}
         id={props.id}

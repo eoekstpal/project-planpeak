@@ -38,18 +38,18 @@ function AllCompoTest() {
         <BtnSmall bgColor={'bg-ppMoveBlue'} text={'안녕하세요'} />
         <BtnRound bgColor={'bg-ppBlue'} text={'안녕하세요'} />
         <BtnRound bgColor={'bg-ppGray'} text={'안녕하세요'} />
-        <BtnLarge bgColor={'bg-ppBlue'} text={'안녕하세요'} />
+        <BtnLarge bgColor={'bg-ppBlue'} textColor={'text-ppBlue'} text={'안녕하세요'} />
         <BtnBorder bdColor={'border-ppBlue'} textColor={'text-ppBlue'} text={'안녕하세요'} />
       </div>
       <div>
         <Card
-          title={"title"}
-          imageUrl={"/vite.svg"}
+          title={'title'}
+          imageUrl={'/vite.svg'}
           width={300}
           height={420}
           rounded={10}
-          content={"askjdfsaldkjflasjdflkaalksdfjklasdjflkdjsfsdjlkf"}
-          info={"infolskdfjlkasjlfkjsdkfksdjfksdjfsdlkfjlkdjfkldj"}
+          content={'askjdfsaldkjflasjdflkaalksdfjklasdjflkdjsfsdjlkf'}
+          info={'infolskdfjlkasjlfkjsdkfksdjfksdjfsdlkfjlkdjfkldj'}
         />
         <PaginatedTable data={dummyData} />
       </div>
