@@ -1,11 +1,29 @@
-import { useRef, ChangeEvent, useState } from 'react';
+import { useRef, ChangeEvent, useState, useEffect } from 'react';
 import './create-meet.css';
 
 function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: string) => void }) {
   const editorRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState<string>('');
   const [color, setColor] = useState<string>('');
+  useEffect(() => {
+    const handleChange = () => {
+      if (editorRef.current) {
+        onContentChange(editorRef.current.innerHTML);
+      }
+    };
 
+    if (editorRef.current) {
+      editorRef.current.addEventListener('input', handleChange);
+    }
+
+    return () => {
+      if (editorRef.current) {
+        editorRef.current.removeEventListener('input', handleChange);
+      }
+    };
+  }, [onContentChange]);
+
+  console.log(editorRef.current?.innerHTML);
   const handleBold = () => {
     document.execCommand('bold');
     if (editorRef.current) onContentChange(editorRef.current.innerHTML);

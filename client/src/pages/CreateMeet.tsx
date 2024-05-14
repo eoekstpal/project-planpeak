@@ -9,7 +9,7 @@ import MeetDate from '../components/create-meet/MeetDate';
 import MeetLocation from '../components/create-meet/MeetLocation';
 import MemberData, { MemberDataFormData } from '../components/create-meet/MemberData';
 import PickMethod from '../components/create-meet/PickMethod';
-import Challenge, { ChallengeProps } from '../components/create-meet/Challenge';
+import Challenge from '../components/create-meet/Challenge';
 import Fee from '../components/create-meet/Fee';
 import axios from 'axios';
 import BtnLarge from '../components/buttons/BtnLarge';
@@ -32,7 +32,7 @@ interface FormData {
     time: string;
   };
   address: string;
-  challenge: ChallengeProps;
+  challenge: boolean;
 
   bank: {
     hasFee: boolean;
@@ -44,15 +44,6 @@ interface FormData {
 }
 
 function CreateMeet() {
-  const [isReady, setIsReady] = useState(false);
-  const [errors, setErrors] = useState({
-    meetingName: false,
-    meetingDescription: false,
-    editorContent: false,
-    progressItems: [false, false],
-    address: false,
-    schedule: { type: false, date: false, time: false },
-  });
   const [formData, setFormData] = useState<FormData>({
     // imageName: '',
     imageFile: null,
@@ -83,9 +74,7 @@ function CreateMeet() {
       time: '',
     },
     address: '',
-    challenge: {
-      onChange: () => {},
-    },
+    challenge: false,
 
     bank: {
       hasFee: false,
@@ -120,6 +109,7 @@ function CreateMeet() {
       ...prevData,
       editorContent: content,
     }));
+    console.log(content);
   };
   const handleProgressItemChange = (index: number, newItem: Item) => {
     setFormData((prevData) => {
@@ -177,32 +167,7 @@ function CreateMeet() {
   };
   const handleSubmit = async () => {
     try {
-      const newErrors = {
-        meetingName: !formData.meetingName,
-        meetingDescription: !formData.meetingDescription,
-        editorContent: !formData.editorContent,
-        progressItems: formData.progressItems.map(
-          (item) => !item.title || !item.description || !item.runningTime,
-        ),
-        address: !formData.address,
-        schedule: {
-          type: !formData.schedule.type,
-          date: !formData.schedule.date,
-          time: !formData.schedule.time,
-        },
-      };
-
-      setErrors(newErrors);
-
-      if (Object.values(newErrors).some((value) => value)) {
-        // 에러가 있는 경우 서브밋을 방지
-        alert('모든 필수 입력 항목을 채워주세요.');
-        return;
-      }
-      setIsReady(true);
-      // 나머지 서브밋 로직...
-
-      const response = await axios.post('http://localhost:3000/submit', {
+      const response = await axios.post('http://localhost:3306/submit', {
         formData: JSON.stringify(formData),
       });
       console.log(formData);

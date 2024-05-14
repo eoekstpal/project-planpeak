@@ -26,7 +26,9 @@ function MeetLocation({ onChange }: AddressProps) {
               type="radio"
               name="on-off"
             />
-            <label htmlFor="">온라인</label>
+            <label className="ml-1 mr-4" htmlFor="">
+              온라인
+            </label>
           </div>
           <div>
             {' '}

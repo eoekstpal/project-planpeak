@@ -21,8 +21,13 @@ function OnelineInput({ title, onInputChange }: OnelineInputProps) {
       {' '}
       <br /> <br />
       <label>{title}</label> <br /> <br />
-      {/* <input type="text" value={value} onChange={handleChange} /> */}
-      <Input onChange={handleChange} placeholderText={`내용을 입력하세요.`} />
+      <input
+        className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+        type="text"
+        value={value}
+        onChange={handleChange}
+      />
+      {/* <Input onChange={handleChange} placeholderText={`내용을 입력하세요.`} /> */}
     </div>
   );
 }
