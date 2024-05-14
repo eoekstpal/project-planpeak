@@ -34,7 +34,7 @@ function Header() {
             </ul>
           </li>
           <li>
-            <Link to="/" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/MeetingList" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               모임 관리하기
             </Link>
           </li>
