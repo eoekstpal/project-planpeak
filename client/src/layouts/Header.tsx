@@ -46,7 +46,7 @@ function Header() {
         </ul>
         <div className="flex p-2 space-x-4">
           <span className="overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue">
-            <Link to="/" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
+            <Link to="/login" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
               로그인
             </Link>
           </span>
