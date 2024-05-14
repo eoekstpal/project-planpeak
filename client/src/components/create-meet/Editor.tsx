@@ -96,7 +96,7 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
           <input
             name="img"
             id="image-upload"
-            className="inline-block bg-blue-600 text-white"
+            className="inline-block"
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
@@ -107,11 +107,11 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
         contentEditable
         ref={editorRef}
         style={{
-          border: '1px solid #ccc',
+          border: '1px solid black',
           minHeight: '200px',
           padding: '10px',
         }}
-      />
+      />{' '}
     </div>
   );
 }

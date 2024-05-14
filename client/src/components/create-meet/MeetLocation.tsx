@@ -2,16 +2,9 @@ import { useState } from 'react';
 import DaumPost, { AddressProps } from './DaumPost';
 
 function MeetLocation({ onChange }: AddressProps) {
-  const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
+  const [method, setMethod] = useState<string>('');
   const [outputAddress, setOutputAddress] = useState('');
 
-  const handleAreaSelect = (area: string) => {
-    if (selectedAreas.includes(area)) {
-      setSelectedAreas(selectedAreas.filter((selected) => selected !== area));
-    } else {
-      setSelectedAreas([...selectedAreas, area]);
-    }
-  };
   const handleAddress = (address: string) => {
     console.log(address);
     setOutputAddress(address);
@@ -20,42 +13,35 @@ function MeetLocation({ onChange }: AddressProps) {
   return (
     <div>
       {' '}
-      <br /> <br />
+      <br /> <br /> <br />
       <h2>중심 활동 지역이 있나요?</h2> <br />
       <div>
-        <label>활동 영역:</label>
-        <div>
-          <div
-            style={{
-              display: 'inline-block',
-              padding: '8px',
-              margin: '5px',
-              backgroundColor: selectedAreas.includes('online') ? 'blue' : '#f0f0f0',
-              cursor: 'pointer',
-              color: 'gray',
-              borderRadius: '10px',
-            }}
-            onClick={() => handleAreaSelect('online')}
-          >
-            온라인
+        <label className="text-sm">활동 영역:</label> <br />
+        <div className="flex">
+          <div>
+            <input
+              className="inline"
+              onChange={() => setMethod('온라인')}
+              checked={method === '온라인'}
+              type="radio"
+              name="on-off"
+            />
+            <label htmlFor="">온라인</label>
           </div>
-          <div
-            style={{
-              display: 'inline-block',
-              padding: '8px',
-              margin: '5px',
-              backgroundColor: selectedAreas.includes('offline') ? 'blue' : '#f0f0f0',
-              cursor: 'pointer',
-              color: 'gray',
-              borderRadius: '10px',
-            }}
-            onClick={() => handleAreaSelect('offline')}
-          >
-            오프라인
+          <div>
+            {' '}
+            <input
+              className="inline"
+              onChange={() => setMethod('오프라인')}
+              checked={method === '오프라인'}
+              type="radio"
+              name="on-off"
+            />
+             <label htmlFor="">오프라인</label>
           </div>
         </div>
       </div>
-      {selectedAreas.includes('online') && (
+      {method === '온라인' && (
         <div>
           <label>온라인 링크:</label>
           <input
@@ -64,7 +50,7 @@ function MeetLocation({ onChange }: AddressProps) {
           />
         </div>
       )}
-      {selectedAreas.includes('offline') && (
+      {method === '오프라인' && (
         <div>
           <label>주소:</label>
           <input

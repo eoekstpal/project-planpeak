@@ -50,7 +50,6 @@ function ProgressItem({ index, item, onChange }: ProgressItemProps) {
   return (
     <div>
       {' '}
-      <br />
       {index + 1}
       <input
         className="m-4 inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"

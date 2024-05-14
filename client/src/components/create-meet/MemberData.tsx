@@ -87,6 +87,7 @@ function MemberData({ onDataChange }: MemberDataProps) {
         {' '}
         <br /> <br />
         <h2>어떤 사람을 초대하고 싶어요?</h2> <br />
+        <div className="text-sm">연령</div>{' '}
         <div className="flex">
           {' '}
           <div>
@@ -139,7 +140,9 @@ function MemberData({ onDataChange }: MemberDataProps) {
         </ul>
       </div> */}{' '}
       <br />
+      <p className="text-sm">인원</p>{' '}
       <div className="flex">
+        {' '}
         <input
           className="mr-1 text-blue-500 border-blue-500 focus:ring-blue-500"
           type="radio"
