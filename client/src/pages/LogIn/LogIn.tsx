@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import BtnLarge from "../../components/Common/buttons/BtnLarge"
 import Input from "../../components/Common/forms/Input"
 
-
 function LogIn() {
   return (
     <div className="w-2/5 py-10 px-12 mx-auto my-96 text-center">
