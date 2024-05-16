@@ -1,6 +1,8 @@
-
+import { Link } from 'react-router-dom';
 import CardImage from '../components/Common/Card'
-import Input from '../components/forms/Input';
+import Search from '../components/Common/forms/Search';
+import BtnLarge from '../components/Common/buttons/BtnLarge';
+import PaginatedTable from '../components/Common/PaginatedTable';
 
 interface Event {
     imageSrc: string;
@@ -71,30 +73,55 @@ function renderItems(items: Event[])  {
     ));
 };
 
-
 function List () {
     return (
-      <div>
-        <div className='mt-10 flex items-start ml-60'>
-            <span className="text-ppGray mr-6 font-['Pretendard'] ">
-                모든 모임 둘러보기
-            </span>
-            <Input />
-            <div>
-
-            </div>
+      <div className='flex'>
+        <nav className='SideNavCount'>
+            <ul className="py-7 px-4">
+                <li className="text-ppBlack text-xl font-bold py-5">모임 참가하기</li>
+                <li className="text-ppGray leading-10 hover:text-ppBlue">
+                    <Link to={'/'}>내가 참여중인 모임</Link>
+                </li>
+                <li className="text-ppGray leading-10 hover:text-ppBlue">
+                    <Link to={'/'}>내가 찜한 모임</Link>
+                </li>
+                <li className="text-ppGray leading-10 hover:text-ppBlue">
+                    <Link to={'/'}>모든 모임 둘러보기</Link>
+                </li>
+            </ul>            
+        </nav>
+        <div className='container p-8'>
+          <div className='flex py-6 px-4 space-between'>
+            <h2>모든 모임 둘러보기</h2>
+            <Search />
+          </div>   
+          <div className='flex text-bold text-2xl px-4'>
+            <h2>태그 검색</h2>
+            <ul className='grid grid-cols-5 gap-5 ml-40'>
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#자기계발'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#운동'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#아웃도어/여행'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#독서/인문학'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#음악/악기'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#문화/예술'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#스터디'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#클래스/강의'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#N잡'} />
+                <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#기타'} />
+            </ul>
+          </div>  
+          <div>
+            <ul className='mt-10 grid grid-cols-4 gap-4 [&_span]:text-ppGray'>
+              {renderItems(events)}
+            </ul>
+          </div>  
         </div>
         <div>
-            <div>
-                태그검색
-            </div>
-            <div></div>
+       
         </div>
       </div>      
     )
 }
-
-
 
 export default List;
 
