@@ -49,35 +49,73 @@ function MeetingList() {
     <div className="SideNavCont">
       <nav>
         <ul className="py-7 px-4">
-          <li className="text-ppBlack text-xl font-bold py-5">관리자 페이지</li>
+          <li className="text-ppBlack text-xl font-medium py-5">관리자 페이지</li>
           <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>참가자 목록</Link>
-          </li>
-          <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>안내메세지 관리</Link>
-          </li>
-          <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>출결 및 과제 관리</Link>
+            <Link to={'/'}>개설한 모임 목록</Link>
           </li>
         </ul>
       </nav>
       <div className="container p-8">
-        <div className="flex py-6 px-4">
-          <span className="w-14 h-14 mx-2 my-3">
-            <img src="" alt="" />
+        <div className="flex px-2 py-4 justify-between">
+          <h2 className="text-xl font-medium">개설한 모임 목록</h2>
+          <span className={`inline-block overflow-hidden bg-ppBlue rounded`}>
+            <Link to={'/'} className="block py-2 px-3 text-white">
+              새로운 모임 만들기
+            </Link>
           </span>
-          <div className="p-2">
-            <h2 className="text-xl font-bold">모임 이름</h2>
-            <p className="mt-1 text-s text-ppGray">모임 설명이 들어갑니다.</p>
-          </div>
         </div>
-        <div className="px-2 py-6">
-          <h3 className="mt-4 mb-5 text-lg font-bold">일정별 자동 안내 예약 설정</h3>
-          <PaginatedTable headers={tableHeader} data={tableCell}></PaginatedTable>
-        </div>
-        <div className="py-4 text-right">
-          <BtnMedium bgColor={'bg-ppGray'} text={'예약 설정 저장'} />
-        </div>
+        <ul className="my-5">
+          <li className="flex px-2 py-4 border-t border-solid border-slate-300 justify-between">
+            <Link to={'/MemberList'} className="flex">
+              <span className="block w-14 h-14 mr-2 bg-slate-200">
+                <img src="" alt="" />
+              </span>
+              <div className="px-1">
+                <h3 className="mb-1 text-lg">모임 이름</h3>
+                <p className="text-sm text-ppLightGray">모임 설명</p>
+              </div>
+            </Link>
+            <ul className="flex">
+              <li className="px-4 text-center">
+                <h4 className="mb-1 text-lg">신청자 수</h4>
+                <span className="block text-sm text-ppLightGray">00명</span>
+              </li>
+              <li className="px-4 text-center">
+                <h4 className="mb-1 text-lg">일정확인</h4>
+                <span className="block text-sm text-ppLightGray">00명</span>
+              </li>
+              <li className="px-4 text-center">
+                <h4 className="mb-1 text-lg">진행상태</h4>
+                <span className="block text-sm text-ppLightGray">진행 중</span>
+              </li>
+            </ul>
+          </li>
+          <li className="flex px-2 py-4 border-t border-solid border-slate-300 justify-between">
+            <Link to={'/MemberList'} className="flex">
+              <span className="block w-14 h-14 mr-2 bg-slate-200">
+                <img src="" alt="" />
+              </span>
+              <div className="px-1">
+                <h3 className="mb-1 text-lg">모임 이름</h3>
+                <p className="text-sm text-ppLightGray">모임 설명</p>
+              </div>
+            </Link>
+            <ul className="flex">
+              <li className="px-4 text-center">
+                <h4 className="mb-1 text-lg">신청자 수</h4>
+                <span className="block text-sm text-ppLightGray">00명</span>
+              </li>
+              <li className="px-4 text-center">
+                <h4 className="mb-1 text-lg">일정확인</h4>
+                <span className="block text-sm text-ppLightGray">00명</span>
+              </li>
+              <li className="px-4 text-center">
+                <h4 className="mb-1 text-lg">진행상태</h4>
+                <span className="block text-sm text-ppLightGray">진행 중</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   );
