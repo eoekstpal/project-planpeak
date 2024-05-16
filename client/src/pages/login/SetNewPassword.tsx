@@ -13,8 +13,8 @@ function SetNewPassword() {
         <Input name={''} id={''} placeholderText={'새로운 비밀번호'}/>
         <Input name={''} id={''} placeholderText={'비밀번호 확인'}/>
         {/* <BtnLarge bgColor={'bg-yellow-300 my-4 text-ppBlack hover:bg-yellow-400'} text={'카카오 로그인'}/> */}
-        <Link to={'/'}>
-          <BtnLarge bgColor={'bg-ppBlue my-4 hover:bg-ppMoveBlue'} text={'변경하기'} />
+        <Link to={'/login'}>
+          <BtnLarge bgColor={'bg-ppBlue my-4 hover:bg-ppMoveBlue text-ppWhite'} text={'변경하기'} />
         </Link>
       </div>
     </div>

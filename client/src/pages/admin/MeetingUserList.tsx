@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom'
-import Checkbox from '../components/Common/forms/Checkbox'
-import Selectbox from '../components/Common/forms/Selectbox'
-import BtnSmall from '../components/Common/buttons/BtnSmall';
-import Input from '../components/Common/forms/Input';
-import PaginatedTable from '../components/Common/PaginatedTable';
-import BtnMedium from '../components/Common/buttons/BtnMedium';
+import Checkbox from '../../components/Common/forms/Checkbox';
+import Selectbox from '../../components/Common/forms/Selectbox';
+import BtnSmall from '../../components/Common/buttons/BtnSmall';
+import Input from '../../components/Common/forms/Input';
+import PaginatedTable from '../../components/Common/PaginatedTable';
+import BtnMedium from '../../components/Common/buttons/BtnMedium';
+import AdminNav from '../../layouts/AdminNav';
 
 function MeetingUserList() {
-
   const DepositStatus = [
     { value: '입금완료', name: '입금완료' },
     { value: '미입금', name: '미입금' },
@@ -34,18 +33,18 @@ function MeetingUserList() {
 
   const applicantTableList: any = [
     [
-    <Checkbox></Checkbox>,
-    '이지혜',
-    '010-1234-1234',
-    '경상북도',
-    '2024/08/15',
-    '여',
-    <Selectbox options={DepositStatus} />,
-    <Input name="meno" id="meno" placeholderText="비고" />,
-    <BtnSmall bgColor={'bg-ppBlue'} text={'승인'}></BtnSmall>,
-    <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>,
-    ]
-  ]
+      <Checkbox></Checkbox>,
+      '이지혜',
+      '010-1234-1234',
+      '경상북도',
+      '2024/08/15',
+      '여',
+      <Selectbox options={DepositStatus} />,
+      <Input name="meno" id="meno" placeholderText="비고" />,
+      <BtnSmall bgColor={'bg-ppBlue'} text={'승인'}></BtnSmall>,
+      <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>,
+    ],
+  ];
   const participantsHeaderList: string[] | any = [
     <Checkbox></Checkbox>,
     '이름',
@@ -61,35 +60,22 @@ function MeetingUserList() {
 
   const participantsTableList: any = [
     [
-    <Checkbox></Checkbox>,
-    '이지혜',
-    '010-1234-1234',
-    '경상북도',
-    '2024/08/15',
-    '여',
-    <Selectbox options={DepositStatus} />,
-    <Input name="meno" id="meno" placeholderText="비고" />,
-    <BtnSmall bgColor={'bg-ppBlue'} text={'승인'}></BtnSmall>,
-    <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>,
-    ]
-  ]
+      <Checkbox></Checkbox>,
+      '이지혜',
+      '010-1234-1234',
+      '경상북도',
+      '2024/08/15',
+      '여',
+      <Selectbox options={DepositStatus} />,
+      <Input name="meno" id="meno" placeholderText="비고" />,
+      <BtnSmall bgColor={'bg-ppBlue'} text={'승인'}></BtnSmall>,
+      <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>,
+    ],
+  ];
 
   return (
     <div className="SideNavCont">
-       <nav>
-        <ul className="py-7 px-4">
-          <li className="text-ppBlack text-xl font-bold py-5">관리자 페이지</li>
-          <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>참가자 목록</Link>
-          </li>
-          <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>안내메세지 관리</Link>
-          </li>
-          <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>출결 및 과제 관리</Link>
-          </li>
-        </ul>
-      </nav>
+      <AdminNav />
       <div className="container p-8">
         <div className="flex py-6 px-4">
           <span className="w-14 h-14 mx-2 my-3">
@@ -105,20 +91,23 @@ function MeetingUserList() {
           <PaginatedTable headers={applicantHeaderList} data={applicantTableList}></PaginatedTable>
         </div>
         <div className="px-2 py-6">
-          <div className='flex justify-between'>
+          <div className="flex justify-between">
             <h3 className="mt-4 mb-5 text-lg font-bold">참여자 정보</h3>
             <Selectbox options={StateOPTIONS} />
           </div>
-          
-          <PaginatedTable headers={participantsHeaderList} data={participantsTableList}></PaginatedTable>
+
+          <PaginatedTable
+            headers={participantsHeaderList}
+            data={participantsTableList}
+          ></PaginatedTable>
         </div>
         <div className="py-4 text-right">
           <BtnMedium bgColor={'bg-ppBlue mx-4'} text={'저장'} />
           <BtnMedium bgColor={'bg-ppGray'} text={'선택 인원 메일 발송'} />
         </div>
-      </div> 
+      </div>
     </div>
   );
 }
 
-export default MeetingUserList
+export default MeetingUserList;

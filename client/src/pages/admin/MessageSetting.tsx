@@ -1,9 +1,9 @@
-import PaginatedTable from '../components/Common/PaginatedTable';
-import BtnMedium from '../components/Common/buttons/BtnMedium';
-import Checkbox from '../components/Common/forms/Checkbox';
-import Input from '../components/Common/forms/Input';
-import Selectbox from '../components/Common/forms/Selectbox';
-import SideNav from '../layouts/SideNav';
+import PaginatedTable from '../../components/Common/PaginatedTable';
+import BtnMedium from '../../components/Common/buttons/BtnMedium';
+import Checkbox from '../../components/Common/forms/Checkbox';
+import Input from '../../components/Common/forms/Input';
+import Selectbox from '../../components/Common/forms/Selectbox';
+import AdminNav from '../../layouts/AdminNav';
 
 const StateOPTIONS = [
   { value: '신청완료', name: '신청완료' },
@@ -47,7 +47,7 @@ const tableCell: any = [
 function MessageSetting() {
   return (
     <div className="SideNavCont">
-      <SideNav></SideNav>
+      <AdminNav />
       <div className="container p-8">
         <div className="flex py-6 px-4">
           <span className="w-14 h-14 mx-2 my-3">

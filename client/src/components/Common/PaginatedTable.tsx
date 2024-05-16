@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-//데이터 예시
-// const dummyData = [
-//     ["인영" "010-4222-6836", "inyoung@example.com"],
-//     ["찬영", "010-4222-6836", "chanyoung@example.com"],
+type PaginatedTableProps = {
+  headers: React.ReactNode[];
+  data: React.ReactNode[][];
+};
 
-//   ];
-
-const PaginatedTable = ({ data }: { data: string[][] }) => {
+const PaginatedTable = ({ headers, data }: PaginatedTableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -21,10 +19,7 @@ const PaginatedTable = ({ data }: { data: string[][] }) => {
 
   return (
     <div>
-      <Table
-        headers={["이름", "연락처", "email"]}
-        data={currentPageData.map((item) => item)}
-      />
+      <Table headers={headers} data={currentPageData} />
 
       <Pagination
         currentPage={currentPage}
@@ -37,7 +32,12 @@ const PaginatedTable = ({ data }: { data: string[][] }) => {
 
 export default PaginatedTable;
 
-const Table = ({ headers, data }: { headers: string[]; data: string[][] }) => {
+type TableProps = {
+  headers: React.ReactNode[];
+  data: React.ReactNode[][];
+};
+
+const Table = ({ headers, data }: TableProps) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200">
@@ -72,22 +72,14 @@ const Table = ({ headers, data }: { headers: string[]; data: string[][] }) => {
     </div>
   );
 };
-import {
-  IconChevronsLeft,
-  IconChevronsRight,
-  IconChevronLeft,
-  IconChevronRight,
-} from "@tabler/icons-react";
+
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 };
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: PaginationProps) => {
+
+const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const pages = [];
   let startPage = 1;
   let endPage = totalPages;
@@ -138,7 +130,7 @@ const Pagination = ({
             : "hover:bg-gray-200"
         } rounded-l border border-gray-300 px-3 py-1`}
       >
-        <IconChevronsLeft />
+        {"<<"}
       </button>
       <button
         onClick={goToPreviousPage}
@@ -149,7 +141,7 @@ const Pagination = ({
             : "hover:bg-gray-200"
         } border border-gray-300 px-3 py-1`}
       >
-        <IconChevronLeft />
+        {"<"}
       </button>
       {pages.map((page) => (
         <button
@@ -171,7 +163,7 @@ const Pagination = ({
             : "hover:bg-gray-200"
         } border border-gray-300 px-3 py-1`}
       >
-        <IconChevronRight />
+        {">"}
       </button>
       <button
         onClick={goToLastPage}
@@ -182,7 +174,7 @@ const Pagination = ({
             : "hover:bg-gray-200"
         } rounded-r border border-gray-300 px-3 py-1`}
       >
-        <IconChevronsRight />
+        {">>"}
       </button>
     </div>
   );
