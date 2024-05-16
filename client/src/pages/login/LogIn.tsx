@@ -9,11 +9,13 @@ function LogIn() {
       <div className="flex flex-col pt-10 pb-4">
         <Input name={''} id={''} placeholderText={'Email'}/>
         <Input name={''} id={''} placeholderText={'Password'}/>
-        <BtnLarge bgColor={'bg-ppBlue my-4 hover:bg-ppMoveBlue'} text={'PlanPeak 로그인'} />
+        <Link to={'/'}>
+          <BtnLarge bgColor={'bg-ppBlue my-4 hover:bg-ppMoveBlue text-ppWhite'} text={'PlanPeak 로그인'} />
+        </Link>
       </div>
       <div className="flex justify-center">
         <div className="grow text-start">
-          <Link to={'/'} className="text-ppBlue border-2 border-slate-950">PW 찾기</Link>        
+          <Link to={'/findpw'} className="text-ppBlue border-2 border-slate-950">PW 찾기</Link>        
         </div>
         <div className='flex'>
           <p className="text-ppVeryLightGray">회원이 아니신가요? &nbsp;</p>

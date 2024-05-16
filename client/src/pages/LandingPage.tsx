@@ -60,7 +60,9 @@ const events: Event[] = [
     },
 ];
 
-const renderItems = (items: Event[]) => {
+
+function renderItems (items: Event[]) {
+
     return items.map((item) => (
       <li key={item.name} className="col text-left items-center">
         <CardImage src={item.imageSrc} alt={item.altText || item.name} />
