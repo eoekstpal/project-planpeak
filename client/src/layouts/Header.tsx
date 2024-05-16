@@ -51,7 +51,7 @@ function Header() {
             </Link>
           </span>
           <span className="overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue">
-            <Link to="/" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
+            <Link to="/signup" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
               회원가입하기
             </Link>
           </span>

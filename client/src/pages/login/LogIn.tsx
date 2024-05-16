@@ -13,7 +13,7 @@ function LogIn() {
       </div>
       <div className="flex justify-center">
         <div className="grow text-start">
-          <Link to={'/'} className="text-ppBlue border-2 border-slate-950">PW 찾기</Link>        
+          <Link to={'/findpw'} className="text-ppBlue border-2 border-slate-950">PW 찾기</Link>        
         </div>
         <div className='flex'>
           <p className="text-ppVeryLightGray">회원이 아니신가요? &nbsp;</p>
