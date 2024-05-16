@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import CardImage from '../components/Common/Card'
 import Search from '../components/Common/forms/Search';
 import BtnLarge from '../components/Common/buttons/BtnLarge';
-import PaginatedTable from '../components/Common/PaginatedTable';
 
 interface Event {
     imageSrc: string;
@@ -73,7 +72,7 @@ function renderItems(items: Event[])  {
     ));
 };
 
-function List () {
+function AllMeetingList () {
     return (
       <div className='flex'>
         <nav className='SideNavCount'>
@@ -123,5 +122,5 @@ function List () {
     )
 }
 
-export default List;
+export default AllMeetingList;
 

@@ -12,7 +12,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/user/meetinglist" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               모임 참가하기
             </Link>
             <ul className="hidden">
@@ -34,12 +34,12 @@ function Header() {
             </ul>
           </li>
           <li>
-            <Link to="/MeetingList" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/admin/meetinglist" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               모임 관리하기
             </Link>
           </li>
           <li>
-            <Link to="/" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/landing" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               플랜픽 소개
             </Link>
           </li>
