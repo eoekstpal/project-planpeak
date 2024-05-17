@@ -17,11 +17,15 @@ import BtnLarge from '../components/buttons/BtnLarge';
 interface FormData {
   //   imageName: string;
   imageFile: File | null;
+  imageDataURL: string;
   categoryIds: number[];
   meetingName: string;
   meetingDescription: string;
+  providing: string;
+  preps: string;
   editorContent: string;
   snsLinks: SNSLinksData;
+  pickMethod: boolean;
   applyMotivation: string[];
   progressItems: Item[];
   memberData: MemberDataFormData | null;
@@ -47,15 +51,19 @@ function CreateMeet() {
   const [formData, setFormData] = useState<FormData>({
     // imageName: '',
     imageFile: null,
+    imageDataURL: '',
     categoryIds: [],
     meetingName: '',
     meetingDescription: '',
+    providing: '',
+    preps: '',
     editorContent: '',
     snsLinks: {
       instagram: '',
       youtube: '',
       other: '',
     },
+    pickMethod: false,
     applyMotivation: [],
     progressItems: [
       { title: '', description: '', runningTime: '' },
@@ -85,10 +93,11 @@ function CreateMeet() {
     },
   });
 
-  const handleImageUpload = (imageFile: File) => {
+  const handleImageUpload = (imageFile: File, imageDataURL: string) => {
     setFormData((prevData) => ({
       ...prevData,
       //   imageName: imageFile.name,
+      imageDataURL: imageDataURL,
       imageFile: imageFile,
     }));
   };
@@ -96,6 +105,18 @@ function CreateMeet() {
     setFormData((prevData) => ({
       ...prevData,
       meetingName: name,
+    }));
+  };
+  const handleProvidingChange = (desc: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      providing: desc,
+    }));
+  };
+  const handlePrepsChange = (preps: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      preps: preps,
     }));
   };
   const handleDescriptionInputChange = (description: string) => {
@@ -166,9 +187,74 @@ function CreateMeet() {
     }));
   };
   const handleSubmit = async () => {
+    const emptyFields = [];
+
+    if (formData.imageFile === null) emptyFields.push('이미지');
+    if (formData.categoryIds.length === 0) emptyFields.push('카테고리');
+    if (formData.meetingName.trim() === '') emptyFields.push('모임 이름');
+    if (formData.meetingDescription.trim() === '') emptyFields.push('한줄 소개');
+    if (formData.editorContent.trim() === '') emptyFields.push('에디터 내용');
+    if (formData.providing.trim() === '') emptyFields.push('제공 사항');
+    if (formData.preps.trim() === '') emptyFields.push('준비물');
+    if (
+      formData.progressItems.some(
+        (item) =>
+          item.title.trim() === '' ||
+          item.description.trim() === '' ||
+          item.runningTime.trim() === '',
+      )
+    )
+      emptyFields.push('진행 상황');
+
+    if (
+      formData.snsLinks.instagram.trim() === '' &&
+      formData.snsLinks.youtube.trim() === '' &&
+      formData.snsLinks.other.trim() === ''
+    )
+      emptyFields.push('외부 링크');
+
+    if (
+      formData.schedule.type.trim() === '' ||
+      formData.schedule.date.trim() === '' ||
+      formData.schedule.time.trim() === ''
+    )
+      emptyFields.push('일정');
+
+    if (formData.address.trim() === '') emptyFields.push('모임 장소');
+    if (!formData.memberData || formData.memberData.memberTextData?.trim() === '')
+      emptyFields.push('회원 정보');
+    if (!formData.challenge) emptyFields.push('챌린지');
+    if (!formData.bank.hasFee || formData.bank.selectedBank.trim() === '')
+      emptyFields.push('은행 정보');
+    // if (emptyFields.length > 0) {
+    //   const fieldNames = emptyFields.join(', ');
+    //   alert(`다음 필드에 입력이 필요합니다: ${fieldNames}`);
+    //   return;
+    // }
+
+    const form = new FormData();
+    form.append('imageFile', formData.imageFile as File);
+    form.append('categoryIds', JSON.stringify(formData.categoryIds));
+    form.append('meetingName', formData.meetingName);
+    form.append('meetingDescription', formData.meetingDescription);
+    form.append('providing', formData.providing);
+    form.append('preps', formData.preps);
+    form.append('editorContent', formData.editorContent);
+    form.append('snsLinks', JSON.stringify(formData.snsLinks));
+    form.append('pickMethod', formData.pickMethod ? 'true' : 'false');
+    form.append('applyMotivation', JSON.stringify(formData.applyMotivation));
+    form.append('progressItems', JSON.stringify(formData.progressItems));
+    form.append('memberData', JSON.stringify(formData.memberData));
+    form.append('schedule', JSON.stringify(formData.schedule));
+    form.append('address', formData.address);
+    form.append('challenge', formData.challenge ? 'true' : 'false');
+    form.append('bank', JSON.stringify(formData.bank));
+
     try {
-      const response = await axios.post('http://localhost:3306/submit', {
-        formData: JSON.stringify(formData),
+      const response = await axios.post('http://localhost:3306/upload', form, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
       console.log(formData);
       console.log('서버 응답:', response.data);
@@ -193,8 +279,8 @@ function CreateMeet() {
       <OnelineInput title={'모임 이름'} onInputChange={handleNameInputChange} />
       <OnelineInput title={'한줄 소개'} onInputChange={handleDescriptionInputChange} />
       <Editor onContentChange={handleEditorContentChange} />{' '}
-      <OnelineInput title={'제공 사항'} onInputChange={handleDescriptionInputChange} />
-      <OnelineInput title={'준비물'} onInputChange={handleDescriptionInputChange} />
+      <OnelineInput title={'제공 사항'} onInputChange={handleProvidingChange} />
+      <OnelineInput title={'준비물'} onInputChange={handlePrepsChange} />
       <Progress items={formData.progressItems} onItemChange={handleProgressItemChange} />{' '}
       <SNSLinks onSNSLinksChange={handleSNSLinksChange} />
       <MeetDate
