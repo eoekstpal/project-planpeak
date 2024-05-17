@@ -15,6 +15,9 @@ import AdminMeetingList from './pages/admin/AdminMeetingList.tsx';
 import MessageSetting from './pages/admin/MessageSetting.tsx';
 import AllMeetingList from './pages/AllMeetingList.tsx';
 import UserMeetingList from './pages/user/UserMeetingList.tsx';
+import EditChallenge from './pages/admin/Challenge/EditChallenge.tsx';
+import ManageChallenge from './pages/admin/Challenge/ManageChallenge.tsx';
+import ManageChallengePersonal from './pages/admin/Challenge/ManageChallengePerosnal.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -33,6 +36,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/admin/meetingname/meetinguserlist" element={<MeetingUserList />} />
           <Route path="/admin/meetingname/messagesetting" element={<MessageSetting />} />
           <Route path="/user/meetinglist" element={<UserMeetingList />} />
+          <Route path="/admin/challenge/manage" element={<ManageChallenge />} />
+          <Route path="/admin/challenge/edit" element={<EditChallenge />} />
+          <Route path="/admin/challenge/personal" element={<ManageChallengePersonal />} />
         </Route>
       </Routes>
     </BrowserRouter>
