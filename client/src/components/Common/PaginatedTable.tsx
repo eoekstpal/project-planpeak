@@ -1,13 +1,11 @@
 import { useState } from 'react';
 
-//데이터 예시
-// const dummyData = [
-//     ["인영" "010-4222-6836", "inyoung@example.com"],
-//     ["찬영", "010-4222-6836", "chanyoung@example.com"],
+type PaginatedTableProps = {
+  headers: React.ReactNode[];
+  data: React.ReactNode[][];
+};
 
-//   ];
-
-const PaginatedTable = ({ headers, data }: { headers: string[]; data: string[][] }) => {
+const PaginatedTable = ({ headers, data }: PaginatedTableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -21,7 +19,7 @@ const PaginatedTable = ({ headers, data }: { headers: string[]; data: string[][]
 
   return (
     <div>
-      <Table headers={headers} data={currentPageData.map((item) => item)} />
+      <Table headers={headers} data={currentPageData} />
 
       <Pagination
         currentPage={currentPage}
@@ -34,30 +32,34 @@ const PaginatedTable = ({ headers, data }: { headers: string[]; data: string[][]
 
 export default PaginatedTable;
 
-const Table = ({ headers, data }: { headers: string[]; data: string[][] }) => {
+type TableProps = {
+  headers: React.ReactNode[];
+  data: React.ReactNode[][];
+};
+
+const Table = ({ headers, data }: TableProps) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
-            {headers &&
-              headers.map((header, index) => (
-                <th
-                  key={index}
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-                >
-                  {header}
-                </th>
-              ))}
+            {headers.map((header, index) => (
+              <th
+                key={index}
+                scope="col"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              >
+                {header}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
           {data.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className=" whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                  <div className=" flex flex-row items-center"> {cell}</div>
+                <td key={cellIndex} className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                  {cell}
                 </td>
               ))}
             </tr>
@@ -67,17 +69,13 @@ const Table = ({ headers, data }: { headers: string[]; data: string[][] }) => {
     </div>
   );
 };
-import {
-  IconChevronsLeft,
-  IconChevronsRight,
-  IconChevronLeft,
-  IconChevronRight,
-} from '@tabler/icons-react';
+
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 };
+
 const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const pages = [];
   let startPage = 1;
@@ -127,7 +125,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } rounded-l border border-gray-300 px-3 py-1`}
       >
-        <IconChevronsLeft />
+        {'<<'}
       </button>
       <button
         onClick={goToPreviousPage}
@@ -136,7 +134,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } border border-gray-300 px-3 py-1`}
       >
-        <IconChevronLeft />
+        {'<'}
       </button>
       {pages.map((page) => (
         <button
@@ -156,7 +154,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } border border-gray-300 px-3 py-1`}
       >
-        <IconChevronRight />
+        {'>'}
       </button>
       <button
         onClick={goToLastPage}
@@ -165,7 +163,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } rounded-r border border-gray-300 px-3 py-1`}
       >
-        <IconChevronsRight />
+        {'>>'}
       </button>
     </div>
   );
