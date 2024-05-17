@@ -19,20 +19,20 @@ function MeetDetail() {
 
     fetchData();
   }, []);
-  useEffect(() => {
-    const fetchFile = async () => {
-      try {
-        const response = await axios.get('http://localhost:3306/file/26'); // 서버의 파일 API 호출
+  //   useEffect(() => {
+  //     const fetchFile = async () => {
+  //       try {
+  //         const response = await axios.get('http://localhost:3306/file/26');
 
-        console.log(response.data);
-        setFileUrl(response.data);
-      } catch (error) {
-        console.error('Error fetching file:', error);
-      }
-    };
+  //         console.log(response.data);
+  //         setFileUrl(response.data);
+  //       } catch (error) {
+  //         console.error('Error fetching file:', error);
+  //       }
+  //     };
 
-    fetchFile();
-  }, []);
+  //     fetchFile();
+  //   }, []);
 
   return (
     <div>
