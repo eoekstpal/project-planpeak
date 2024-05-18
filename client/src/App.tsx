@@ -8,8 +8,11 @@ function App() {
   return (
     <>
       <Header />
-      <main className="content">
-        <Outlet />
+      <main>
+        <div className="content">
+          <h1>사이드바 없이 가득찬 레이아웃</h1>
+        </div>
+        <SideNavCont></SideNavCont>
       </main>
       <Footer />
     </>

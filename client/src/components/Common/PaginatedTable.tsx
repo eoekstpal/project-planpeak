@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 type PaginatedTableProps = {
   headers: React.ReactNode[];
@@ -58,10 +58,7 @@ const Table = ({ headers, data }: TableProps) => {
           {data.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  className="whitespace-nowrap px-6 py-4 text-sm text-gray-500"
-                >
+                <td key={cellIndex} className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
                   {cell}
                 </td>
               ))}
@@ -125,30 +122,26 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
         onClick={goToFirstPage}
         disabled={currentPage === 1}
         className={`${
-          currentPage === 1
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } rounded-l border border-gray-300 px-3 py-1`}
       >
-        {"<<"}
+        {'<<'}
       </button>
       <button
         onClick={goToPreviousPage}
         disabled={currentPage === 1}
         className={`${
-          currentPage === 1
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } border border-gray-300 px-3 py-1`}
       >
-        {"<"}
+        {'<'}
       </button>
       {pages.map((page) => (
         <button
           key={page}
           onClick={() => goToPage(page)}
           className={`${
-            currentPage === page ? "bg-gray-200" : "hover:bg-gray-200"
+            currentPage === page ? 'bg-gray-200' : 'hover:bg-gray-200'
           } border border-gray-300 px-3 py-1`}
         >
           {page}
@@ -158,23 +151,19 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
         onClick={goToNextPage}
         disabled={currentPage === totalPages}
         className={`${
-          currentPage === totalPages
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } border border-gray-300 px-3 py-1`}
       >
-        {">"}
+        {'>'}
       </button>
       <button
         onClick={goToLastPage}
         disabled={currentPage === totalPages}
         className={`${
-          currentPage === totalPages
-            ? "cursor-not-allowed opacity-50"
-            : "hover:bg-gray-200"
+          currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-200'
         } rounded-r border border-gray-300 px-3 py-1`}
       >
-        {">>"}
+        {'>>'}
       </button>
     </div>
   );
