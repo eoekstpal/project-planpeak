@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 // import axios from 'axios';
 import Chip from '../components/create-meet/Chip';
 import CalendarComponent from '../components/common/Calendar';
