@@ -12,7 +12,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/user/meetinglist" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               모임 참가하기
             </Link>
             <ul className="hidden">
@@ -34,24 +34,24 @@ function Header() {
             </ul>
           </li>
           <li>
-            <Link to="/" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/admin/meetinglist" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               모임 관리하기
             </Link>
           </li>
           <li>
-            <Link to="/" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
+            <Link to="/landing" className="p-2 text-ppVeryLightGray hover:text-ppBlue">
               플랜픽 소개
             </Link>
           </li>
         </ul>
         <div className="flex p-2 space-x-4">
           <span className="overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue">
-            <Link to="/" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
+            <Link to="/login" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
               로그인
             </Link>
           </span>
           <span className="overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue">
-            <Link to="/" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
+            <Link to="/signup" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
               회원가입하기
             </Link>
           </span>
