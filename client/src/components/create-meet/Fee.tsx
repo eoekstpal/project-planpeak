@@ -54,11 +54,14 @@ function Fee({ onChange }: FeeProps) {
     <div>
       {' '}
       <br /> <br />
-      <h2>참여비가 있나요?</h2> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">참여비</h3>
+      </div>{' '}
+      <br />
       <div className="flex">
         {' '}
         <input
-          className="mr-2 rounded border-gray-300 focus:ring-blue-500"
+          className="mr-2"
           type="radio"
           name="hasFee"
           value="yes"
@@ -69,7 +72,7 @@ function Fee({ onChange }: FeeProps) {
           있어요
         </label>
         <input
-          className="mr-2 rounded border-gray-300 focus:ring-blue-500"
+          className="mr-2"
           type="radio"
           name="hasFee"
           value="no"

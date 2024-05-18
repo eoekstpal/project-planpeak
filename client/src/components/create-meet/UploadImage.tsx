@@ -14,11 +14,11 @@ function UploadImage({ onImageUpload }: UploadImageProps) {
     if (selectedImage) {
       const reader = new FileReader();
       reader.onload = () => {
-        const imageDataURL = reader.result as string; // 데이터 URL 생성
-        onImageUpload(selectedImage, imageDataURL); // 이미지 파일과 데이터 URL을 프롭스로 전달
-        setPreviewImage(imageDataURL); // 미리보기 설정
+        const imageDataURL = reader.result as string;
+        onImageUpload(selectedImage, imageDataURL);
+        setPreviewImage(imageDataURL);
       };
-      reader.readAsDataURL(selectedImage); // 데이터 URL 생성을 위해 이미지 파일을 읽음
+      reader.readAsDataURL(selectedImage);
     }
   };
 
@@ -35,7 +35,9 @@ function UploadImage({ onImageUpload }: UploadImageProps) {
           <br />
         </div>
       )}
-      <label htmlFor="image-upload">대표 이미지 등록</label>
+      <label className="text-xl font-bold" htmlFor="image-upload">
+        대표 이미지 등록
+      </label>
       <br /> <br />
       <BtnLarge
         text="파일선택"

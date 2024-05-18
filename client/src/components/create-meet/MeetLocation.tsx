@@ -14,13 +14,16 @@ function MeetLocation({ onChange }: AddressProps) {
     <div>
       {' '}
       <br /> <br /> <br />
-      <h2>중심 활동 지역이 있나요?</h2> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">지역</h3>
+      </div>{' '}
+      <br />
       <div>
         <label className="text-sm">활동 영역:</label> <br />
-        <div className="flex">
-          <div>
+        <div className="flex mt-3">
+          <div className="flex">
             <input
-              className="inline"
+              className="mr-1"
               onChange={() => setMethod('온라인')}
               checked={method === '온라인'}
               type="radio"
@@ -30,10 +33,10 @@ function MeetLocation({ onChange }: AddressProps) {
               온라인
             </label>
           </div>
-          <div>
+          <div className="flex">
             {' '}
             <input
-              className="inline"
+              className="mr-1"
               onChange={() => setMethod('오프라인')}
               checked={method === '오프라인'}
               type="radio"
@@ -43,26 +46,30 @@ function MeetLocation({ onChange }: AddressProps) {
           </div>
         </div>
       </div>
-      {method === '온라인' && (
-        <div>
-          <label>온라인 링크:</label>
-          <input
-            type="text"
-            className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
-          />
-        </div>
-      )}
-      {method === '오프라인' && (
-        <div>
-          <label>주소:</label>
-          <input
-            className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
-            type="text"
-            value={outputAddress}
-          />
-          <DaumPost onChange={(address) => handleAddress(address)} />
-        </div>
-      )}
+      <div className="mt-3">
+        {method === '온라인' && (
+          <div>
+            <label>온라인 링크:</label>
+            <input
+              type="text"
+              className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+            />
+          </div>
+        )}{' '}
+      </div>
+      <div className="mt-3">
+        {method === '오프라인' && (
+          <div>
+            <label>주소:</label>
+            <input
+              className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+              type="text"
+              value={outputAddress}
+            />
+            <DaumPost onChange={(address) => handleAddress(address)} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

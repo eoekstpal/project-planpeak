@@ -130,7 +130,7 @@ function CreateMeet() {
       ...prevData,
       editorContent: content,
     }));
-    console.log(content);
+    // console.log(content);
   };
   const handleProgressItemChange = (index: number, newItem: Item) => {
     setFormData((prevData) => {
@@ -273,7 +273,8 @@ function CreateMeet() {
 
   return (
     <div className="p-4">
-      <h1 className="text-xl">모임생성하기</h1> <br />
+      {/* <h1 className="text-xl">모임생성하기</h1> */}
+      <h2 className="text-2xl font-bold mb-2">모임생성하기</h2> <br />
       <UploadImage onImageUpload={handleImageUpload} />
       <MeetCategoryChips onSelectedChipsChange={handleCategory} />
       <OnelineInput title={'모임 이름'} onInputChange={handleNameInputChange} />

@@ -44,7 +44,10 @@ function MeetDate({ onScheduleChange }: MeetDateProps) {
     <div>
       {' '}
       <br /> <br />
-      <h2>모임일정</h2> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">일정</h3>
+      </div>{' '}
+      <br />
       <div className="flex">
         {' '}
         <input

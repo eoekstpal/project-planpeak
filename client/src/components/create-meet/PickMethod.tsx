@@ -13,7 +13,7 @@ function PickMethod({ onQuestionChange }: PickMethodProps) {
   };
 
   const handleAddQuestion = () => {
-    setQuestions([...questions, '']); // 새로운 질문 추가
+    setQuestions([...questions, '']);
   };
 
   const handleQuestionChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,10 @@ function PickMethod({ onQuestionChange }: PickMethodProps) {
     <div>
       {' '}
       <br /> <br />
-      <h2>선발 방식</h2> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">멤버 선발 방식</h3>
+      </div>{' '}
+      <br />
       <div className="flex">
         <input
           className="mr-1"

@@ -1,3 +1,4 @@
+import { IconBrandInstagram, IconBrandYoutube, IconLink } from '@tabler/icons-react';
 import { useState } from 'react';
 
 export interface SNSLinksData {
@@ -60,10 +61,17 @@ function SNSLinks({ onSNSLinksChange }: SNSLinksProps) {
   return (
     <div>
       {' '}
-      <br /> <br /> <p>외부 링크</p> <br />
-      {renderInputField('Instagram', 'Instagram link', 'instagram')}
-      {renderInputField('Youtube', 'Youtube link', 'youtube')}
-      {renderInputField('URL', 'Other link', 'other')}
+      <br /> <br />{' '}
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">외부 링크</h3>
+      </div>{' '}
+      <br />
+      <IconBrandInstagram size={24} stroke={2} color="#E4405F" />
+      {renderInputField('', 'Instagram link', 'instagram')}
+      <IconBrandYoutube size={24} stroke={2} color="#FF0000" />
+      {renderInputField('', 'Youtube link', 'youtube')}
+      <IconLink size={24} stroke={2} color="#000000" />
+      {renderInputField('', 'Other link', 'other')}
     </div>
   );
 }

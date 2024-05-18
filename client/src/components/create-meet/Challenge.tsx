@@ -11,10 +11,13 @@ function Challenge({ onChange }: any) {
   return (
     <div>
       <br /> <br />
-      <h2>챌린지(과제) 유무</h2> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">챌린지</h3>
+      </div>{' '}
+      <br />
       <div className="flex">
         <input
-          className="mr-1 form-radio text-blue-500 bg-red-200"
+          className="mr-1"
           type="radio"
           id="yes"
           name="challenge"

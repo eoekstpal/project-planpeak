@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Chip from './Chip';
 import Textarea from './Textarea';
+
 interface MemberDataProps {
   onDataChange: (data: MemberDataFormData) => void;
 }
@@ -86,17 +87,18 @@ function MemberData({ onDataChange }: MemberDataProps) {
       <div className="">
         {' '}
         <br /> <br />
-        <h2>어떤 사람을 초대하고 싶어요?</h2> <br />
+        <div className="mb-4">
+          <h3 className="text-xl font-bold">멤버 정보</h3>
+        </div>
+        <br />
         <div className="text-sm">연령</div>{' '}
-        <div className="flex">
-          {' '}
-          <div>
-            {' '}
+        <div className="flex mt-3">
+          <div className="flex">
             <input
-              className="inline mr-1"
+              className="mr-1"
               type="radio"
               id="unlimited"
-              name="memberOption"
+              name="age"
               value="unlimited"
               checked={selectedOption === 'unlimited'}
               onChange={() => handleOptionChange('unlimited')}
@@ -104,18 +106,20 @@ function MemberData({ onDataChange }: MemberDataProps) {
             <label className="mr-4" htmlFor="unlimited">
               제한없음
             </label>
-          </div>{' '}
-          <div>
+          </div>
+          <div className="flex">
             <input
-              className="inline mr-1"
+              className="mr-1"
               type="radio"
               id="age"
-              name="memberOption"
+              name="age"
               value="age"
               checked={selectedOption === 'age'}
               onChange={() => handleOptionChange('age')}
             />
-            <label htmlFor="age">연령대 설정</label>
+            <label className="mr-4" htmlFor="age">
+              나이 설정
+            </label>
           </div>{' '}
         </div>
       </div>
@@ -139,32 +143,34 @@ function MemberData({ onDataChange }: MemberDataProps) {
           ))}
         </ul>
       </div> */}{' '}
-      <br />
-      <p className="text-sm">인원</p>{' '}
-      <div className="flex">
+      <br /> <p className="text-sm">인원</p>
+      <div className="flex mt-3">
         {' '}
-        <input
-          className="mr-1 text-blue-500 border-blue-500 focus:ring-blue-500"
-          type="radio"
-          id="unlimited"
-          name="memberNumberOption"
-          value="unlimited"
-          checked={selectedNumberOption === 'unlimited'}
-          onChange={() => handleNumberOptionChange('unlimited')}
-        />
-        <label className="mr-4" htmlFor="unlimited">
-          제한없음
-        </label>
-        <input
-          className="mr-1"
-          type="radio"
-          id="number"
-          name="memberNumberOption"
-          value="number"
-          checked={selectedNumberOption === 'number'}
-          onChange={() => handleNumberOptionChange('number')}
-        />
-        <label htmlFor="number">인원 설정</label>{' '}
+        <div className="flex">
+          {' '}
+          <input
+            className="mr-1"
+            type="radio"
+            id="unlimited"
+            name="memberNumberOption"
+            value="unlimited"
+            checked={selectedNumberOption === 'unlimited'}
+            onChange={() => handleNumberOptionChange('unlimited')}
+          />
+          <label className="mr-4" htmlFor="unlimited">
+            제한없음
+          </label>
+          <input
+            className="mr-1"
+            type="radio"
+            id="number"
+            name="memberNumberOption"
+            value="number"
+            checked={selectedNumberOption === 'number'}
+            onChange={() => handleNumberOptionChange('number')}
+          />
+          <label htmlFor="number">인원 설정</label>{' '}
+        </div>
       </div>
       <div>
         {selectedNumberOption === 'number' && (

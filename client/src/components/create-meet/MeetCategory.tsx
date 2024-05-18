@@ -37,13 +37,16 @@ function MeetCategoryChips({ onSelectedChipsChange }: MeetCategoryChipsProps) {
       const updatedChips = [...selectedChips];
       updatedChips.splice(chipIndex, 1);
       setSelectedChips(updatedChips);
-      onSelectedChipsChange(updatedChips); // 여기로 이동
+      onSelectedChipsChange(updatedChips);
     }
   };
   return (
     <div>
       <br /> <br />
-      <p>모임 카테고리</p> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">카테고리</h3>
+      </div>{' '}
+      <br />
       {chips.map((chip) => (
         <div
           key={chip.id}

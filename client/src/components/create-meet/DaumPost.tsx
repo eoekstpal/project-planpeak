@@ -10,7 +10,7 @@ function DaumPost({ onChange }: AddressProps) {
   const handleComplete = (data: Address) => {
     let fullAddress = data.address;
     let extraAddress = '';
-    let localAddress = data.sido + ' ' + data.sigungu;
+    // let localAddress = data.sido + ' ' + data.sigungu;
 
     if (data.addressType === 'R') {
       if (data.bname !== '') {
@@ -22,7 +22,7 @@ function DaumPost({ onChange }: AddressProps) {
 
       //   fullAddress = fullAddress.replace(localAddress, '');
 
-      console.log(fullAddress);
+      //   console.log(fullAddress);
       onChange(fullAddress);
     }
   };

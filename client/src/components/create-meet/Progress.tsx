@@ -31,7 +31,10 @@ function Progress({ items, onItemChange }: ProgressProps) {
   return (
     <div>
       <br /> <br />
-      <h2>진행순서 및 시간</h2> <br />
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">진행 순서 및 시간</h3>
+      </div>{' '}
+      <br />
       {items.map((item, index) => (
         <ProgressItem key={index} index={index} item={item} onChange={handleChange} />
       ))}{' '}
@@ -69,7 +72,7 @@ function ProgressItem({ index, item, onChange }: ProgressItemProps) {
       />{' '}
       <input
         type="text"
-        className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+        className="ml-6 inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
         name="runningTime"
         value={item.runningTime}
         onChange={(e) => onChange(index, e)}

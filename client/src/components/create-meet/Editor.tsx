@@ -5,6 +5,8 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
   const editorRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState<string>('');
   const [color, setColor] = useState<string>('');
+  const [image, setImage] = useState<File | null>(null);
+
   useEffect(() => {
     const handleChange = () => {
       if (editorRef.current) {
@@ -23,7 +25,6 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
     };
   }, [onContentChange]);
 
-  console.log(editorRef.current?.innerHTML);
   const handleBold = () => {
     document.execCommand('bold');
     if (editorRef.current) onContentChange(editorRef.current.innerHTML);
@@ -51,7 +52,7 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
+    setImage(file);
     const reader = new FileReader();
     reader.onload = (event: ProgressEvent<FileReader>) => {
       if (event.target && event.target.result && editorRef.current) {
@@ -69,8 +70,12 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
   return (
     <div className="editor">
       <br />
-      <br /> <p>상세 내용</p> <br />
-      <div className="header">
+      <br />{' '}
+      <div className="mb-4">
+        <h3 className="text-xl font-bold">상세 소개글</h3>
+      </div>{' '}
+      <br />
+      <div className="border bg-gray-100 p-4 rounded">
         <div className="inline">
           {' '}
           <button onClick={handleBold}>강조 </button>
@@ -79,7 +84,7 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
           {' '}
           <button onClick={handleUnderline}>밑줄 </button>
         </div>
-        <div className="inline">
+        <div className="inline text-red">
           <label>
             <select value={fontSize} onChange={handleFontSizeChange}>
               <option value="">글자크기</option>
@@ -114,7 +119,7 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
           <input
             name="img"
             id="image-upload"
-            className="inline-block"
+            className="inline-block ml-2"
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
@@ -125,7 +130,7 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
         contentEditable
         ref={editorRef}
         style={{
-          border: '1px solid black',
+          border: '1px solid lightGray',
           minHeight: '200px',
           padding: '10px',
         }}

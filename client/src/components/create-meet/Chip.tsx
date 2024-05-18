@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 interface ChipProps {
-  id: string;
-  name: string;
-  onSelect: (id: string, selected: boolean) => void;
+  id?: string;
+  name?: string;
+  onSelect?: (id: string, selected: boolean) => void;
 }
 
-function Chip({ id, name, onSelect }: ChipProps) {
+function Chip({ id = 'default id', name = 'default name', onSelect = () => {} }: ChipProps) {
   const [selected, setSelected] = useState(false);
 
   const handleClick = () => {
