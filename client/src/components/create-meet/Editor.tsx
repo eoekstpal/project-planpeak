@@ -74,7 +74,6 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
       <div className="mb-4">
         <h3 className="text-xl font-bold">상세 소개글</h3>
       </div>{' '}
-      <br />
       <div className="border bg-gray-100 p-4 rounded">
         <div className="inline">
           {' '}

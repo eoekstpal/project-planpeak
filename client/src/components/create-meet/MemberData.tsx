@@ -90,7 +90,6 @@ function MemberData({ onDataChange }: MemberDataProps) {
         <div className="mb-4">
           <h3 className="text-xl font-bold">멤버 정보</h3>
         </div>
-        <br />
         <div className="text-sm">연령</div>{' '}
         <div className="flex mt-3">
           <div className="flex">
@@ -123,18 +122,20 @@ function MemberData({ onDataChange }: MemberDataProps) {
           </div>{' '}
         </div>
       </div>
-      {selectedOption === 'age' && (
-        <div className="flex">
-          <Chip name={'10대'} id={'10s'} onSelect={handleChipSelect} />
-          <Chip name={'20대'} id={'20s'} onSelect={handleChipSelect} />
-          <Chip name={'30대'} id={'30s'} onSelect={handleChipSelect} />
-          <Chip name={'40대'} id={'40s'} onSelect={handleChipSelect} />
-          <Chip name={'50대'} id={'50s'} onSelect={handleChipSelect} />
-          <Chip name={'60대'} id={'60s'} onSelect={handleChipSelect} />
-          <Chip name={'70대'} id={'70s'} onSelect={handleChipSelect} />
-          <Chip name={'80대'} id={'80s'} onSelect={handleChipSelect} />
-        </div>
-      )}
+      <div className="mt-4 mb-7">
+        {selectedOption === 'age' && (
+          <div className="flex">
+            <Chip name={'10대'} id={'10s'} onSelect={handleChipSelect} />
+            <Chip name={'20대'} id={'20s'} onSelect={handleChipSelect} />
+            <Chip name={'30대'} id={'30s'} onSelect={handleChipSelect} />
+            <Chip name={'40대'} id={'40s'} onSelect={handleChipSelect} />
+            <Chip name={'50대'} id={'50s'} onSelect={handleChipSelect} />
+            <Chip name={'60대'} id={'60s'} onSelect={handleChipSelect} />
+            <Chip name={'70대'} id={'70s'} onSelect={handleChipSelect} />
+            <Chip name={'80대'} id={'80s'} onSelect={handleChipSelect} />
+          </div>
+        )}
+      </div>
       {/* <div>
         <p>선택된 칩:</p>
         <ul>
@@ -172,7 +173,7 @@ function MemberData({ onDataChange }: MemberDataProps) {
           <label htmlFor="number">인원 설정</label>{' '}
         </div>
       </div>
-      <div>
+      <div className="pl-5 mt-3 mb-7  bg-gray-100 rounded">
         {selectedNumberOption === 'number' && (
           <div>
             {' '}

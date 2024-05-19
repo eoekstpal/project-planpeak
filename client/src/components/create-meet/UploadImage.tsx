@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './create-meet.css';
-import BtnLarge from '../buttons/BtnLarge';
+import BtnLarge from '../common/buttons/BtnLarge';
 
 interface UploadImageProps {
   onImageUpload: (image: File, imageDataURL: string) => void;

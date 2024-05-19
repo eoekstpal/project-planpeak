@@ -46,7 +46,6 @@ function MeetCategoryChips({ onSelectedChipsChange }: MeetCategoryChipsProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">카테고리</h3>
       </div>{' '}
-      <br />
       {chips.map((chip) => (
         <div
           key={chip.id}
@@ -56,9 +55,9 @@ function MeetCategoryChips({ onSelectedChipsChange }: MeetCategoryChipsProps) {
             padding: '8px',
             margin: '3px',
 
-            backgroundColor: selectedChips.some((c) => c.id === chip.id) ? 'blue' : '#f0f0f0',
+            backgroundColor: selectedChips.some((c) => c.id === chip.id) ? 'skyblue' : '#f0f0f0',
             cursor: 'pointer',
-            color: 'gray',
+            color: selectedChips.some((c) => c.id === chip.id) ? 'white' : 'black', // 선택된 칩일 때 텍스트 색상을 화이트로 설정
           }}
           onClick={() => handleChipToggle(chip.id)}
         >

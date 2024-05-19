@@ -65,7 +65,6 @@ function SNSLinks({ onSNSLinksChange }: SNSLinksProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">외부 링크</h3>
       </div>{' '}
-      <br />
       <IconBrandInstagram size={24} stroke={2} color="#E4405F" />
       {renderInputField('', 'Instagram link', 'instagram')}
       <IconBrandYoutube size={24} stroke={2} color="#FF0000" />

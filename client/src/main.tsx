@@ -15,6 +15,9 @@ import MessageSetting from './pages/admin/MessageSetting.tsx';
 import AllMeetingList from './pages/AllMeetingList.tsx';
 import UserMeetingList from './pages/user/UserMeetingList.tsx';
 import React from 'react';
+import CreateMeet from './pages/CreateMeet.tsx';
+import MeetDetail from './pages/MeetDetail.tsx';
+import MeetList from './pages/MeetList.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -32,6 +35,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/admin/meetingname/meetinguserlist" element={<MeetingUserList />} />
           <Route path="/admin/meetingname/messagesetting" element={<MessageSetting />} />
           <Route path="/user/meetinglist" element={<UserMeetingList />} />
+          <Route path="/user/meetinglist/create-meet" element={<CreateMeet />} />
+          <Route path="/user/meetinglist/meet-detail" element={<MeetDetail />} />
+          <Route path="/user/meetinglist/meet-list" element={<MeetList />} />
         </Route>
       </Routes>
     </BrowserRouter>

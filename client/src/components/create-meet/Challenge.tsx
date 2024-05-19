@@ -14,7 +14,6 @@ function Challenge({ onChange }: any) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">챌린지</h3>
       </div>{' '}
-      <br />
       <div className="flex">
         <input
           className="mr-1"

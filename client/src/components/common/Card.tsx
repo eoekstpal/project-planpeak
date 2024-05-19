@@ -1,34 +1,37 @@
-import React from 'react';
-
 interface CardProps {
   title: string;
   content: string;
   imageUrl?: string;
-  width?: number;
+  width?: string;
   height?: number;
   rounded?: number;
   info: string;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card = ({
   title,
   content,
-  imageUrl,
-  width = 200,
-  height = 200,
+  imageUrl = '/assets/logo/landing1.png',
+  width = 'full',
+  height = 400,
   rounded = 0,
-  info,
-}) => {
+  info = 'info',
+}: CardProps) => {
   const roundedStyle = {
     borderRadius: `${rounded}px`,
   };
 
   return (
     <div
-      className="overflow-hidden bg-[#d9d9d9] shadow-lg"
+      className="overflow-hidden mx-auto bg-gray-100"
       style={{ width: `${width}px`, height: `${height}px`, ...roundedStyle }}
     >
-      {imageUrl && <img src={imageUrl} alt="Card" className="w-full" />}
+      {imageUrl && (
+        <div
+          className="w-full h-[300px] bg-cover bg-center"
+          style={{ backgroundImage: `url(${imageUrl})` }}
+        />
+      )}
       <div className="p-4">
         <div className="mb-2 text-xl font-bold">{title}</div>
         <p

@@ -30,7 +30,6 @@ function PickMethod({ onQuestionChange }: PickMethodProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">멤버 선발 방식</h3>
       </div>{' '}
-      <br />
       <div className="flex">
         <input
           className="mr-1"
@@ -53,29 +52,31 @@ function PickMethod({ onQuestionChange }: PickMethodProps) {
         />
         <label htmlFor="motivation">지원동기</label>
       </div>
-      {method === 'motivation' && (
-        <div>
-          {questions.map((question, index) => (
-            <div key={index}>
-              {' '}
-              {index + 1}.
-              <input
-                className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
-                type="text"
-                value={question}
-                onChange={(event) => handleQuestionChange(index, event)}
-              />
-            </div>
-          ))}
-
-          <button
-            className="mt-1 p-1 w-10 text-white bg-blue-600 inline-block overflow-hidden rounded"
-            onClick={handleAddQuestion}
-          >
-            +
-          </button>
-        </div>
-      )}
+      <div className="p-5 mt-5  bg-gray-100 rounded">
+        {method === 'motivation' && (
+          <div>
+            {questions.map((question, index) => (
+              <div key={index}>
+                {' '}
+                {index + 1}. <br />
+                <input
+                  className=" mt-1 mb-2 inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+                  type="text"
+                  value={question}
+                  onChange={(event) => handleQuestionChange(index, event)}
+                />
+              </div>
+            ))}
+            <br />
+            <button
+              className="mt-1 p-1 w-10 text-white bg-blue-600 inline-block overflow-hidden rounded"
+              onClick={handleAddQuestion}
+            >
+              +
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
