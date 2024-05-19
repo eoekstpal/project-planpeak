@@ -1,50 +1,26 @@
-import PaginatedTable from '../../components/common/PaginatedTable';
 import BtnMedium from '../../components/common/buttons/BtnMedium';
 import Checkbox from '../../components/common/forms/Checkbox';
 import Input from '../../components/common/forms/Input';
 import Selectbox from '../../components/common/forms/Selectbox';
 import AdminNav from '../../layouts/AdminNav';
 
-const StateOPTIONS = [
-  { value: '신청완료', name: '신청완료' },
-  { value: '참여중', name: '참여중' },
-  { value: '노쇼/환불', name: '노쇼/환불' },
-  { value: '마무리안내', name: '마무리안내' },
-  { value: '기타', name: '기타' },
-];
-const MessageOPTIONS = [
-  { value: '신청안내', name: '신청안내' },
-  { value: '입금안내', name: '입금안내' },
-  { value: '일정안내', name: '일정안내' },
-  { value: '노쇼/환불안내', name: '노쇼/환불안내' },
-  { value: '챌린지 안내', name: '챌린지 안내' },
-  { value: '마무리 안내', name: '마무리 안내' },
-];
-const tableHeader: string[] | any = [
-  <Checkbox></Checkbox>,
-  '상태',
-  '안내메세지',
-  '발송일',
-  '안내문구',
-  '발송완료여부',
-  '발송성공',
-  '발송실패',
-];
-
-const tableCell: any = [
-  [
-    <Checkbox></Checkbox>,
-    <Selectbox options={StateOPTIONS}></Selectbox>,
-    <Selectbox options={MessageOPTIONS}></Selectbox>,
-    <Input></Input>,
-    <Input></Input>,
-    '완료',
-    '2000명',
-    '3000명',
-  ],
-];
-
 function MessageSetting() {
+  const StateOPTIONS = [
+    { value: '신청완료', name: '입금완료' },
+    { value: '참여중', name: '참여중' },
+    { value: '노쇼/환불', name: '노쇼/환불' },
+    { value: '마무리안내', name: '마무리안내' },
+    { value: '기타', name: '기타' },
+  ];
+  const MessageOPTIONS = [
+    { value: '신청안내', name: '신청안내' },
+    { value: '입금안내', name: '입금안내' },
+    { value: '일정안내', name: '일정안내' },
+    { value: '노쇼/환불 안내', name: '노쇼/환불 안내' },
+    { value: '챌린지 안내', name: '챌린지 안내' },
+    { value: '마무리 안내', name: '마무리 안내' },
+  ];
+
   return (
     <div className="SideNavCont">
       <AdminNav />
@@ -58,11 +34,64 @@ function MessageSetting() {
             <p className="mt-1 text-s text-ppGray">모임 설명이 들어갑니다.</p>
           </div>
         </div>
-        <div className="px-2 py-6">
+        <div className="px-2 py-8">
           <h3 className="mt-4 mb-5 text-lg font-bold">일정별 자동 안내 예약 설정</h3>
-          <PaginatedTable headers={tableHeader} data={tableCell}></PaginatedTable>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    <Checkbox></Checkbox>
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    상태
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    안내메세지
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    발송일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    안내문구
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    발송완료여부
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    발송성공
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    발송실패
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2 text-sm">
+                    <Checkbox></Checkbox>
+                  </td>
+                  <td className="p-2 text-sm">
+                    <Selectbox options={StateOPTIONS} />
+                  </td>
+                  <td className="p-2 text-sm">
+                    <Selectbox options={MessageOPTIONS} />
+                  </td>
+                  <td className="p-2 text-sm">
+                    <Input name="memo" id="memo" placeholderText="비고" />
+                  </td>
+                  <td className="p-2 text-sm">
+                    <Input name="memo" id="memo" placeholderText="비고" />
+                  </td>
+                  <td className="p-2 text-sm">완료</td>
+                  <td className="p-2 text-sm">20명</td>
+                  <td className="p-2 text-sm">5명</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div className="py-4 text-right">
+        <div className="mt-6 pt-6 pb-4 text-right">
           <BtnMedium bgColor={'bg-ppGray'} text={'예약 설정 저장'} />
         </div>
       </div>

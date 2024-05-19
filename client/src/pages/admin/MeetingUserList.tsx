@@ -2,7 +2,6 @@ import Checkbox from '../../components/common/forms/Checkbox';
 import Selectbox from '../../components/common/forms/Selectbox';
 import BtnSmall from '../../components/common/buttons/BtnSmall';
 import Input from '../../components/common/forms/Input';
-import PaginatedTable from '../../components/common/PaginatedTable';
 import BtnMedium from '../../components/common/buttons/BtnMedium';
 import AdminNav from '../../layouts/AdminNav';
 
@@ -12,65 +11,14 @@ function MeetingUserList() {
     { value: '미입금', name: '미입금' },
   ];
   const StateOPTIONS = [
-    { value: '신청완료', name: '신청완료' },
     { value: '참여중', name: '참여중' },
     { value: '노쇼/환불', name: '노쇼/환불' },
     { value: '마무리안내', name: '마무리안내' },
     { value: '기타', name: '기타' },
   ];
-  const applicantHeaderList: string[] | any = [
-    <Checkbox></Checkbox>,
-    '이름',
-    '연락처',
-    '이메일',
-    '거주지',
-    '생년월일',
-    '성별',
-    '입금확인',
-    '비고',
-    '참여자 선정',
-  ];
-
-  const applicantTableList: any = [
-    [
-      <Checkbox></Checkbox>,
-      '이지혜',
-      '010-1234-1234',
-      '경상북도',
-      '2024/08/15',
-      '여',
-      <Selectbox options={DepositStatus} />,
-      <Input name="meno" id="meno" placeholderText="비고" />,
-      <BtnSmall bgColor={'bg-ppBlue'} text={'승인'}></BtnSmall>,
-      <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>,
-    ],
-  ];
-  const participantsHeaderList: string[] | any = [
-    <Checkbox></Checkbox>,
-    '이름',
-    '연락처',
-    '이메일',
-    '거주지',
-    '생년월일',
-    '성별',
-    '입금확인',
-    '비고',
-    '참여자 선정',
-  ];
-
-  const participantsTableList: any = [
-    [
-      <Checkbox></Checkbox>,
-      '이지혜',
-      '010-1234-1234',
-      '경상북도',
-      '2024/08/15',
-      '여',
-      <Selectbox options={DepositStatus} />,
-      <Input name="meno" id="meno" placeholderText="비고" />,
-      <BtnSmall bgColor={'bg-ppBlue'} text={'승인'}></BtnSmall>,
-      <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>,
-    ],
+  const SortOPTIONS = [
+    { value: '가입날짜 순', name: '가입날짜 순' },
+    { value: '이름순', name: '이름순' },
   ];
 
   return (
@@ -86,22 +34,202 @@ function MeetingUserList() {
             <p className="mt-1 text-s text-ppGray">모임 설명이 들어갑니다.</p>
           </div>
         </div>
-        <div className="px-2 py-6">
+        <div className="px-2 py-8">
           <h3 className="mt-4 mb-5 text-lg font-bold">신청자 정보</h3>
-          <PaginatedTable headers={applicantHeaderList} data={applicantTableList}></PaginatedTable>
-        </div>
-        <div className="px-2 py-6">
-          <div className="flex justify-between">
-            <h3 className="mt-4 mb-5 text-lg font-bold">참여자 정보</h3>
-            <Selectbox options={StateOPTIONS} />
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    <Checkbox></Checkbox>
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    이름
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    연락처
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    이메일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    거주지
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    생년월일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    성별
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    입금확인
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    비고
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    참여자 선정
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2 text-sm">
+                    <Checkbox></Checkbox>
+                  </td>
+                  <td className="p-2 text-sm">이지혜</td>
+                  <td className="p-2 text-sm">010-1234-1234</td>
+                  <td className="p-2 text-sm">email@gmail.com</td>
+                  <td className="p-2 text-sm">경상북도</td>
+                  <td className="p-2 text-sm">2024/08/15</td>
+                  <td className="p-2 text-sm">여</td>
+                  <td className="p-2 text-sm">
+                    <Selectbox options={DepositStatus} />
+                  </td>
+                  <td className="p-2 text-sm">
+                    <Input name="memo" id="memo" placeholderText="비고" />
+                  </td>
+                  <td className="p-2 text-sm align-middle">
+                    <BtnSmall bgColor={'bg-ppBlue me-2'} text={'승인'}></BtnSmall>
+                    <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-          <PaginatedTable
-            headers={participantsHeaderList}
-            data={participantsTableList}
-          ></PaginatedTable>
         </div>
-        <div className="py-4 text-right">
+        <div className="px-2 py-8">
+          <div className="flex justify-between items-center">
+            <h3 className="mt-4 mb-5 text-lg font-bold">참여자 정보</h3>
+            <Selectbox options={SortOPTIONS} />
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    <Checkbox></Checkbox>
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    이름
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    연락처
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    이메일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    거주지
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    생년월일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    성별
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    입금확인
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    비고
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    참여자 선정
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2 text-sm">
+                    <Checkbox></Checkbox>
+                  </td>
+                  <td className="p-2 text-sm">이지혜</td>
+                  <td className="p-2 text-sm">010-1234-1234</td>
+                  <td className="p-2 text-sm">email@gmail.com</td>
+                  <td className="p-2 text-sm">경상북도</td>
+                  <td className="p-2 text-sm">2024/08/15</td>
+                  <td className="p-2 text-sm">여</td>
+                  <td className="p-2 text-sm">
+                    <Selectbox options={StateOPTIONS} />
+                  </td>
+                  <td className="p-2 text-sm">
+                    <Input name="memo" id="memo" placeholderText="비고" />
+                  </td>
+                  <td className="p-2 text-sm align-middle">
+                    <BtnSmall bgColor={'bg-ppBlue me-2'} text={'승인'}></BtnSmall>
+                    <BtnSmall bgColor={'bg-ppLightGray'} text={'거절'}></BtnSmall>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="mt-4 px-2 text-right">
+              <BtnMedium bgColor={'bg-ppLightGray align-middle ml-2'} text={'블랙리스트 설정'} />
+            </div>
+          </div>
+        </div>
+        <div className="px-2 py-8">
+          <div className="flex justify-between items-center">
+            <h3 className="mt-4 mb-5 text-lg font-bold">모임원 블랙리스트 관리</h3>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    <Checkbox></Checkbox>
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    이름
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    연락처
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    이메일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    거주지
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    생년월일
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    성별
+                  </th>
+
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    비고
+                  </th>
+                  <th className="p-2 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    가입일자
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2 text-sm">
+                    <Checkbox></Checkbox>
+                  </td>
+                  <td className="p-2 text-sm">이지혜</td>
+                  <td className="p-2 text-sm">010-1234-1234</td>
+                  <td className="p-2 text-sm">email@gmail.com</td>
+                  <td className="p-2 text-sm">경상북도</td>
+                  <td className="p-2 text-sm">2024/08/15</td>
+                  <td className="p-2 text-sm">여</td>
+                  <td className="p-2 text-sm">
+                    <Input name="memo" id="memo" placeholderText="비고" />
+                  </td>
+                  <td className="p-2 text-sm">2020.00.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="mt-4 px-2 text-right">
+              <BtnMedium bgColor={'bg-ppLightGray align-middle ml-2'} text={'블랙리스트 해제'} />
+            </div>
+          </div>
+        </div>
+        <div className="mt-6 pt-6 pb-4 text-right">
           <BtnMedium bgColor={'bg-ppBlue mx-4'} text={'저장'} />
           <BtnMedium bgColor={'bg-ppGray'} text={'선택 인원 메일 발송'} />
         </div>
