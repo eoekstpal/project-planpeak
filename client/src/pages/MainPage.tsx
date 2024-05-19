@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import CardImage from '../components/common/Card';
 import { useEffect } from 'react';
 import axios from 'axios';
+import BtnMedium from '../components/common/buttons/BtnMedium';
 
 interface Category {
   name: string;
@@ -92,12 +93,18 @@ const MainPage: React.FC = () => {
           <p className="text-ppWhite mt-4 text-xl">
             클래스, 모임 관리를 효율적이고 간편하게 해드릴게요!
           </p>
-          <br />
-          <span className="mt-4 overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue">
-            <Link to="/" className="block py-2 px-3 text-ppVeryLightGray hover:text-white">
+          <br />{' '}
+          <Link to="/user/meetinglist/meet-list">
+            <button className="border rounded w-[150px] bg-white-500 p-5 mb-5 text-xl text-white">
               모임 둘러보기
-            </Link>
-          </span>
+            </button>
+          </Link>{' '}
+          <Link to="/user/meetinglist/create-meet">
+            <button className="border rounded w-[150px] bg-white-500 p-5 mb-5 text-xl text-white">
+              모임 생성하기
+            </button>
+          </Link>{' '}
+          <span className="mt-4 overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue"></span>{' '}
         </div>
         <div className="flex flex-col mt-10 items-center justify-center">
           <ul className="mt-10 grid grid-cols-4 gap-4 [&_span]:text-ppGray">

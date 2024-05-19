@@ -17,6 +17,7 @@ import UserMeetingList from './pages/user/UserMeetingList.tsx';
 import React from 'react';
 import CreateMeet from './pages/CreateMeet.tsx';
 import MeetDetail from './pages/MeetDetail.tsx';
+import MeetList from './pages/MeetList.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -36,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/user/meetinglist" element={<UserMeetingList />} />
           <Route path="/user/meetinglist/create-meet" element={<CreateMeet />} />
           <Route path="/user/meetinglist/meet-detail" element={<MeetDetail />} />
+          <Route path="/user/meetinglist/meet-list" element={<MeetList />} />
         </Route>
       </Routes>
     </BrowserRouter>
