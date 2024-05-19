@@ -251,7 +251,7 @@ function CreateMeet() {
     form.append('re_payment', JSON.stringify(formData.bank));
 
     try {
-      const response = await axios.post('http://101.79.9.36:80/planpeak/post/content_save/', form, {
+      const response = await axios.post('https://101.79.9.36/planpeak/post/content_save/', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
