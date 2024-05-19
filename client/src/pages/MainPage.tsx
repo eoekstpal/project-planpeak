@@ -118,8 +118,12 @@ const MainPage: React.FC = () => {
             </div>
             <div className='mt-10 items-center text-center'>
                 <ul className='flex gap-2 items-center justify-center'>
-                    <li className='w-50 h-30 bg-ppWhite border border-solid border-ppBlack text-left'>광고배너</li>
-                    <li className='border border-solid border-ppBlack text-left'>광고배너</li>
+                    <li className='w-[300px] h-[60px] bg-ppWhite border border-solid border-ppBlack text-center'>
+                        <div className='mt-5'>광고배너</div>
+                    </li>
+                    <li className='w-[300px] h-[60px] border border-solid border-ppBlack text-center'>
+                        <div className='mt-5'>광고배너</div>
+                    </li>
                 </ul>
             </div>
             <div className='mt-10 items-center text-center'>
