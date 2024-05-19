@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import CardImage from '../components/common/Card';
 import { useEffect } from 'react';
 import axios from 'axios';
-import BtnMedium from '../components/common/buttons/BtnMedium';
 
 interface Category {
   name: string;
