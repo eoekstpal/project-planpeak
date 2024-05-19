@@ -69,7 +69,7 @@ const renderItems = (items: Category[] | Event[]) => {
   ));
 };
 
-const MainPage: React.FC = () => {
+const MainPage = () => {
   useEffect(() => {
     const fetchMeetList = async () => {
       try {
