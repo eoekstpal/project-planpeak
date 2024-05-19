@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 // import axios from 'axios';
 import Chip from '../components/create-meet/Chip';
 import CalendarComponent from '../components/common/Calendar';
-import BtnMedium from '../components/buttons/BtnMedium';
+import BtnMedium from '../components/common/buttons/BtnMedium';
 import '@tabler/icons-react';
 import { IconBrandInstagram, IconHeart, IconShare } from '@tabler/icons-react';
 function MeetDetail() {

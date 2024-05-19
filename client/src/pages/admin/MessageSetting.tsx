@@ -1,8 +1,8 @@
-import PaginatedTable from '../../components/Common/PaginatedTable';
-import BtnMedium from '../../components/Common/buttons/BtnMedium';
-import Checkbox from '../../components/Common/forms/Checkbox';
-import Input from '../../components/Common/forms/Input';
-import Selectbox from '../../components/Common/forms/Selectbox';
+import PaginatedTable from '../../components/common/PaginatedTable';
+import BtnMedium from '../../components/common/buttons/BtnMedium';
+import Checkbox from '../../components/common/forms/Checkbox';
+import Input from '../../components/common/forms/Input';
+import Selectbox from '../../components/common/forms/Selectbox';
 import AdminNav from '../../layouts/AdminNav';
 
 const StateOPTIONS = [
