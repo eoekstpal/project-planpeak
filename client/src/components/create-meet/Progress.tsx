@@ -34,7 +34,6 @@ function Progress({ items, onItemChange }: ProgressProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">진행 순서 및 시간</h3>
       </div>{' '}
-      <br />
       {items.map((item, index) => (
         <ProgressItem key={index} index={index} item={item} onChange={handleChange} />
       ))}{' '}

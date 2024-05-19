@@ -17,7 +17,6 @@ function MeetLocation({ onChange }: AddressProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">지역</h3>
       </div>{' '}
-      <br />
       <div>
         <label className="text-sm">활동 영역:</label> <br />
         <div className="flex mt-3">
@@ -48,8 +47,8 @@ function MeetLocation({ onChange }: AddressProps) {
       </div>
       <div className="mt-3">
         {method === '온라인' && (
-          <div>
-            <label>온라인 링크:</label>
+          <div className="p-10  bg-gray-100 rounded">
+            <label>온라인 링크: </label> <hr />
             <input
               type="text"
               className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
@@ -59,8 +58,8 @@ function MeetLocation({ onChange }: AddressProps) {
       </div>
       <div className="mt-3">
         {method === '오프라인' && (
-          <div>
-            <label>주소:</label>
+          <div className="p-10  bg-gray-100 rounded">
+            <label>주소: </label> <hr />
             <input
               className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
               type="text"

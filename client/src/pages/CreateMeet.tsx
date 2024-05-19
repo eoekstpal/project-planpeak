@@ -12,7 +12,7 @@ import PickMethod from '../components/create-meet/PickMethod';
 import Challenge from '../components/create-meet/Challenge';
 import Fee from '../components/create-meet/Fee';
 import axios from 'axios';
-import BtnLarge from '../components/buttons/BtnLarge';
+import BtnLarge from '../components/common/buttons/BtnLarge';
 
 interface FormData {
   //   imageName: string;
@@ -233,25 +233,25 @@ function CreateMeet() {
     // }
 
     const form = new FormData();
-    form.append('imageFile', formData.imageFile as File);
-    form.append('categoryIds', JSON.stringify(formData.categoryIds));
-    form.append('meetingName', formData.meetingName);
-    form.append('meetingDescription', formData.meetingDescription);
-    form.append('providing', formData.providing);
-    form.append('preps', formData.preps);
-    form.append('editorContent', formData.editorContent);
-    form.append('snsLinks', JSON.stringify(formData.snsLinks));
-    form.append('pickMethod', formData.pickMethod ? 'true' : 'false');
-    form.append('applyMotivation', JSON.stringify(formData.applyMotivation));
-    form.append('progressItems', JSON.stringify(formData.progressItems));
+    form.append('re_image', formData.imageFile as File);
+    form.append('re_category', JSON.stringify(formData.categoryIds));
+    form.append('re_title', formData.meetingName);
+    form.append('re_meetbrief', formData.meetingDescription);
+    form.append('re_supplies', formData.providing);
+    form.append('preparation_materials', formData.preps);
+    form.append('content', formData.editorContent);
+    form.append('out_links', JSON.stringify(formData.snsLinks));
+    form.append('pick_method', formData.pickMethod ? 'True' : 'False');
+    form.append('apply_motivation', JSON.stringify(formData.applyMotivation));
+    form.append('process', JSON.stringify(formData.progressItems));
     form.append('memberData', JSON.stringify(formData.memberData));
     form.append('schedule', JSON.stringify(formData.schedule));
     form.append('address', formData.address);
-    form.append('challenge', formData.challenge ? 'true' : 'false');
-    form.append('bank', JSON.stringify(formData.bank));
+    form.append('re_challenge', formData.challenge ? 'True' : 'False');
+    form.append('re_payment', JSON.stringify(formData.bank));
 
     try {
-      const response = await axios.post('http://localhost:3306/upload', form, {
+      const response = await axios.post('http://localhost:8000/register/', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -274,7 +274,7 @@ function CreateMeet() {
   return (
     <div className="p-4">
       {/* <h1 className="text-xl">모임생성하기</h1> */}
-      <h2 className="text-2xl font-bold mb-2">모임생성하기</h2> <br />
+      <h2 className="text-2xl font-bold mb-2">모임생성하기</h2> <br /> <br />
       <UploadImage onImageUpload={handleImageUpload} />
       <MeetCategoryChips onSelectedChipsChange={handleCategory} />
       <OnelineInput title={'모임 이름'} onInputChange={handleNameInputChange} />

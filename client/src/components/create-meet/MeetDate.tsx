@@ -47,7 +47,6 @@ function MeetDate({ onScheduleChange }: MeetDateProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">일정</h3>
       </div>{' '}
-      <br />
       <div className="flex">
         {' '}
         <input
@@ -71,37 +70,40 @@ function MeetDate({ onScheduleChange }: MeetDateProps) {
           정기모임
         </label>
       </div>
-      {schedule.type === '원데이' && (
-        <div className="flex flex-col space-y-4 mt-5">
-          <div className="flex flex-col">
-            <label htmlFor="date" className="text-sm">
-              날짜
-            </label>
-            <input
-              type="date"
-              id="date"
-              value={schedule.date}
-              onChange={handleDateChange}
-              className="py-2 px-3 border border-red-300 rounded focus:outline-none focus:border-blue-500"
-            />
+      <div className=" mt-5">
+        {' '}
+        {schedule.type === '원데이' && (
+          <div className="flex flex-col space-y-4  p-10  bg-gray-100 rounded">
+            <div className="flex flex-col mb-3">
+              <label htmlFor="date" className="text-sm">
+                날짜
+              </label>
+              <input
+                type="date"
+                id="date"
+                value={schedule.date}
+                onChange={handleDateChange}
+                className="py-2 px-3 border border-red-300 rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="time" className="text-sm">
+                시간
+              </label>
+              <input
+                type="time"
+                id="time"
+                value={schedule.time}
+                onChange={handleTimeChange}
+                className="py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label htmlFor="time" className="text-sm">
-              시간
-            </label>
-            <input
-              type="time"
-              id="time"
-              value={schedule.time}
-              onChange={handleTimeChange}
-              className="py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            />
-          </div>
-        </div>
-      )}
+        )}
+      </div>
       {schedule.type === '정기모임' && (
-        <div className="flex flex-col space-y-4 mt-5">
-          <div className="flex flex-col">
+        <div className="flex flex-col space-y-4 mt-5 p-10  bg-gray-100 rounded">
+          <div className="flex flex-col mb-5">
             <label htmlFor="date" className="text-sm mb-1">
               날짜
             </label>

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import CardImage from '../components/common/Card';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 interface Category {
   name: string;
@@ -68,8 +70,19 @@ const renderItems = (items: Category[] | Event[]) => {
 };
 
 const MainPage: React.FC = () => {
+  useEffect(() => {
+    const fetchMeetList = async () => {
+      try {
+        const res = await axios.get('api');
+        const cards = res.data; //백엔드로부터 모임 리스트 데이터 받아서 가공하여 화면에 출력
+      } catch (error) {
+        console.error(`에러메시지: ${error}`);
+      }
+    };
+  }, []);
   return (
     <div>
+      {' '}
       <div className="flex flex-col w-full md:w-480 h-auto md:h-125 p-4 md:p-0">
         <div className="w-full md:w-107 h-auto md:h-45 bg-ppBlue text-center mt-2">
           <h1 className="mt-10 text-ppWhite text-4xl leading-tight">
@@ -117,18 +130,12 @@ const MainPage: React.FC = () => {
         </div>
         <div className="mt-10 items-center text-center">
           <ul className="flex gap-2 text-center items-center justify-center">
-            <li>
-              <CardImage src="path_to_image1" title="" />
-              <span className="text-sm text-bold">후기</span> <br />
-            </li>
-            <li>
-              <CardImage src="path_to_image2" title="" />
-              <span className="text-sm text-bold">후기</span> <br />
-            </li>
-            <li>
-              <CardImage src="path_to_image3" title="" />
-              <span className="text-sm text-bold">후기</span> <br />
-            </li>
+            {/* {cards.map((card)=>(
+             <li>
+             {card} 
+             </li>
+         ))} */}
+            // 카드 출력 예시
           </ul>
         </div>
         <div className="flex flex-auto gab-4">

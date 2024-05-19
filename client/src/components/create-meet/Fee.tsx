@@ -57,7 +57,6 @@ function Fee({ onChange }: FeeProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">참여비</h3>
       </div>{' '}
-      <br />
       <div className="flex">
         {' '}
         <input
@@ -82,44 +81,46 @@ function Fee({ onChange }: FeeProps) {
         <label htmlFor="no">없어요</label>
       </div>{' '}
       <br />
-      {formData.hasFee && (
-        <div>
-          <input
-            className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
-            type="text"
-            placeholder="금액"
-            name="feeAmount"
-            value={formData.feeAmount}
-            onChange={handleInputChange}
-          />{' '}
-          <br /> <br />
-          <select value={formData.selectedBank} onChange={handleInputChange} name="selectedBank">
-            <option value="">은행 선택</option>
-            {koreanBanks.map((bank, index) => (
-              <option key={index} value={bank}>
-                {bank}
-              </option>
-            ))}
-          </select>{' '}
-          <br /> <br />
-          <input
-            className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
-            type="text"
-            placeholder="계좌번호"
-            name="accountNumber"
-            value={formData.accountNumber}
-            onChange={handleInputChange}
-          />{' '}
-          <br /> <br />
-          <textarea
-            className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
-            placeholder="환불규정"
-            name="refundPolicy"
-            value={formData.refundPolicy}
-            onChange={handleInputChange}
-          ></textarea>
-        </div>
-      )}
+      <div className="p-10  bg-gray-100 rounded">
+        {formData.hasFee && (
+          <div>
+            <input
+              className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+              type="text"
+              placeholder="금액"
+              name="feeAmount"
+              value={formData.feeAmount}
+              onChange={handleInputChange}
+            />{' '}
+            <br /> <br />
+            <select value={formData.selectedBank} onChange={handleInputChange} name="selectedBank">
+              <option value="">은행 선택</option>
+              {koreanBanks.map((bank, index) => (
+                <option key={index} value={bank}>
+                  {bank}
+                </option>
+              ))}
+            </select>{' '}
+            <br /> <br />
+            <input
+              className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+              type="text"
+              placeholder="계좌번호"
+              name="accountNumber"
+              value={formData.accountNumber}
+              onChange={handleInputChange}
+            />{' '}
+            <br /> <br />
+            <textarea
+              className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
+              placeholder="환불규정"
+              name="refundPolicy"
+              value={formData.refundPolicy}
+              onChange={handleInputChange}
+            ></textarea>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

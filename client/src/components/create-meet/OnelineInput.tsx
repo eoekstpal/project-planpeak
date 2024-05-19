@@ -23,7 +23,6 @@ function OnelineInput({ title, onInputChange }: OnelineInputProps) {
       <div className="mb-4">
         <h3 className="text-xl font-bold">{title}</h3>
       </div>{' '}
-      <br /> <br />
       <input
         className="inline-block border border-solid border-ppVeryLightGray rounded overflow-hidden"
         type="text"
