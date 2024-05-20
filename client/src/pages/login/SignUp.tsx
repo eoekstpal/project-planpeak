@@ -1,5 +1,6 @@
+import axios from "axios";
 import { useState } from "react"
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 interface UserInfo {
   email: string,
@@ -11,27 +12,11 @@ interface UserInfo {
   month: string,
   day: string,
   region: string,
-  emailAgreeCheck: boolean,
-  marketingAgreeCheck: boolean,
+  emailAgreeCheck: number,
+  marketingAgreeCheck: number,
 }
 
 function SignUp() {
-  // const [email, setEmail] = useState<string>('');
-  // const [name, setName] = useState<string>('');
-  // const [password, setPassword] = useState<string>('');
-  // const [passwordCheck, setPasswordCheck] = useState<string>('');
-  // const [gender, setGender] = useState<string>('');
-  // const [year, setYear] = useState<string>('');
-  // const [month, setMonth] = useState<string>('');
-  // const [day, setDay] = useState<string>('');
-  // const [region, setRegion] = useState<string>('');
-  // const [emailAgreeCheck, setEmailAgreeCheck] = useState<boolean>(false);
-  // const [marketingAgreeCheck, setMarketingAgreeCheck] = useState<boolean>(false);
-
-  // const [emailErr, setEmailErr] = useState<boolean>(false);
-  // const [passwordErr, setPasswordErr] = useState<boolean>(false);
-  // const [passwordCorrect, setPasswordCorrect] = useState<boolean>();
-
 
 const [userInfo, setUserInfo] = useState<UserInfo>({
   email: '',
@@ -43,13 +28,17 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
   month: '',
   day: '',
   region: '',
-  emailAgreeCheck: false,
-  marketingAgreeCheck: false,
+  emailAgreeCheck: 0,
+  marketingAgreeCheck: 0,
 });
 
+// const [isEmail, setIsEmail] = useState<boolean>(false);
+// const [isPassword, setIsPassword] = useState<boolean>(false);
+// const [isPasswordCheck, setIsPasswordCheck] = useState<boolean>(false);
+
   const yearList = Array.from({ length: 94 }, (_, i) => i + 1930);
-  const monthList = Array.from({ length: 12 }, (_, i) => i + 1);
-  const dayList = Array.from({ length: 31 }, (_, i) => i + 1);
+  const monthList = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, '0'));
+  const dayList = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'));
   const regionList : string[] = [
     "서울특별시",
     "인천광역시",
@@ -68,44 +57,59 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
     "경상남도",
     "제주도",
   ]
-  // // 이메일 포멧
-  // const emailRegEx =
-  //   /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/;
-  // // 최소 8 자, 최소 하나의 문자, 하나의 숫자 및 하나의 특수 문자
-  // const passwordRegex =
-  //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/;
-  // const isPasswordCorrect = (password == passwordCheck)
-  // const isValid = (
-  //   email !== '' && name !== '' && password !== '' && isPasswordCorrect === true && 
-  //   gender !== '' && year !== '' && month !== '' && day !== '' && region !== '' &&
-  //   emailErr === false && passwordErr === false
-  // )
 
-  const handleSubmit =  async (event: React.FormEvent<HTMLFormElement>) => {
+//비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.
+// 이메일 포멧: 첫글자(대소문자숫자), 중간(-_.대소문자숫자), @필수, .필수, 최상위 도메인 자리 2-3자
+// const emailRegEx =
+//   /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/;
+
+// -> 영문, 숫자, 특수문자를 포함하여 8~16자의 비밀번호를 입력하세요.
+// 입력하지않을때 비밀번호: 필수 정보입니다.
+// const passwordRegex =
+//   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/;
+//   /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
+
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-    try {
-      console.log()
-    } catch (error) {
-      console.log(error);
-    }
   }
 
-  // const handleEmailRegex = () => {
-  //   if (!emailRegEx.test(email)) {
-  //     setEmailErr(true);
-  //     alert('d')
-  //   } else {
-  //     setEmailErr(false);
-  //   }
-  // }
+  // const handleChangeEmail = useCallback(
+  //   (event: React.ChangeEvent<HTMLInputElement>) => {
+  //     event.preventDefault();
+  //     const { value } = event.target;
+  //     setUserInfo ({
+  //       ...userInfo,
+  //       email: value
+  //     });
+  //     if (!emailRegEx.test(value)) {
+  //       console.log(
+  //         "영문과 숫자 특수기호(-_.)를 조합하여 이메일 형식으로 작성해주세요.",
+  //       );
+  //       setIsEmail(false);
+  //     } else {
+  //       setIsEmail(true);
+  //     }
+  //   }, []
+  // )
 
-  // const handlePasswordRegex = () => {
-  //   if (!passwordRegex.test(password)) {
-  //     setPasswordErr(true);
-  //   } else {
-  //     setPasswordErr(false);
-  //   }
-  // }
+  // const handleChangePasswordCheck = useCallback(
+  //   (event: React.ChangeEvent<HTMLInputElement>) => {
+  //     event.preventDefault();
+  //     const { value } = event.target;
+  //     setUserInfo ({
+  //       ...userInfo,
+  //       passwordCheck: value
+  //     });
+  //     if (userInfo.password === value) {
+  //       setIsPasswordCheck(true);
+  //     } else {
+  //       console.log(
+  //         "비밀번호가 일치하지 않습니다.",
+  //       );
+  //       setIsPasswordCheck(false);
+  //     }
+  //   }, []
+  // )
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -115,26 +119,76 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
     })
   }
 
-  const handleEmailAgree = () => {
-    if(userInfo.emailAgreeCheck = false) {
-      userInfo.emailAgreeCheck = true
-    }else {
-      userInfo.emailAgreeCheck = false
+  const handleCheckbox = (event: any) => {
+    const { name } = event.target;
+    if (event.target.checked) {
+      setUserInfo({ ...userInfo, [name]: 1 });
+    } else {
+      setUserInfo({ ...userInfo, [name]: 0 });
     }
-  };
-  
-  const handleClick = () => {
-    console.log(userInfo)
-    // handleEmailRegex();
-    // handlePasswordRegex();
+  }
+
+  // const handleClickSubmit = async(...UserInfo) => {
+  // const user = new UserInfo();
+  // user.push(userInfo.email);
+  // user.append(userInfo.name);
+  // user.append(userInfo.password);
+  // user.append(userInfo.gender);
+  // user.append(`${userInfo.year}-${userInfo.month}-${userInfo.day}`);
+  // user.append(userInfo.region);
+  // user.append(userInfo.emailAgreeCheck);
+  // user.append(userInfo.marketingAgreeCheck);
+
+  //   event.preventDefault();
+  //   console.log('제출중');
+  //   try{
+  //     const response = await axios.post('http://175.45.203.93/3306', user,{
+  //   headers: {
+  //     'Content-Type' : "application/json",
+
+  //   },
+  // });
+  // console.log(response.data);
+
+  // } catch(error) {
+  //      console.log(error)
+  //    }
+  // }
+
+  const handleClickSubmit = (event: any) => {
+    event.preventDefault();
+    console.log('제출중');
+    axios.post('https://175.45.203.93/3306',
+    {
+      mem_email: userInfo.email,
+      mem_name: userInfo.name,
+      mem_password: userInfo.password,
+      mem_gender: userInfo.gender,
+      mem_birth: `${userInfo.year}${userInfo.month}${userInfo.day}`,
+      mem_address: userInfo.region,
+      mem_emailCheck: userInfo.emailAgreeCheck,
+      mem_marketingCheck: userInfo.marketingAgreeCheck,
+    })
+    .then((result) => {
+      console.log('성공');
+      console.log(result);
+      // alert('회원가입 성공');
+      // <Link to="/login" />;
+    })
+    .catch((error) => {
+      // alert('회원가입 실패')
+      console.log(error)
+      console.log(error.response)
+      console.log(userInfo)
+    })
   }; 
 
   return (
-    <div className='w-6/12 py-10 px-20 mx-auto my-40 text-center content-center'>
+    <div className='w-5/12 py-10 px-20 mx-auto my-40 text-center content-center'>
       <p className='mb-10 text-ppBlack text-4xl font-bold'>
       회원가입
       </p>
-      <form onChange={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input 
           type='text'
           id='email'
@@ -143,7 +197,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
           maxLength={100}
           value={userInfo.email}
           onChange={handleInput}
-          className='w-full py-4 px-4 my-2 text-lg font-medium'
+          className='w-full py-4 px-4 my-4 mx-auto text-lg font-medium border border-solid border-gray-200 rounded'
           required
         />
 
@@ -155,7 +209,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
           maxLength={50}
           value={userInfo.name}
           onChange={handleInput}
-          className='w-full py-4 px-4 my-2 text-lg font-medium'
+          className='w-full py-4 px-4 my-4 text-lg font-medium border border-solid border-gray-200 rounded'
           required
         />
         <input 
@@ -166,7 +220,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
           maxLength={100}
           value={userInfo.password}
           onChange={handleInput}
-          className='w-full py-4 px-4 my-2 text-lg font-medium'
+          className='w-full py-4 px-4 my-2 text-lg font-medium border border-solid border-gray-200 rounded'
           required
         />
         {/* {passwordErr ? 
@@ -181,7 +235,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
           maxLength={100}
           value={userInfo.passwordCheck}
           onChange={handleInput}
-          className='w-full py-4 px-4 my-2 text-lg font-medium'
+          className='w-full py-4 px-4 my-4 text-lg font-medium border border-solid border-gray-200 rounded'
           required
         />
         {/* {passwordErr ? 
@@ -190,17 +244,16 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
         } */}
 
         <div className="flex font-medium items-center">
-          <label htmlFor='gender' 
-            className='py-4 px-4 my-2 text-lg  text-ppGray'
-          >
+          <p className='py-4 px-4 my-2 text-lg  text-ppGray'>
             성별
-          </label>
+          </p>
           <div className='flex px-4 text-lg text-ppGray'>
             <input 
               type='radio'
               id='male'
               name='gender'
               value='male'
+              className='my-auto'
               onChange={handleInput}
             />
             <label htmlFor='male'className='py-4 px-4 my-2'>남</label>
@@ -209,6 +262,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
               id='female'
               name='gender'
               value='femail'
+              className='my-auto'
               onChange={handleInput}
             />
             <label htmlFor='female' className='py-4 px-4 my-2'>여</label>
@@ -225,9 +279,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
             >
               <option
                 value=''
-                disabled
-                hidden
-                selected
+                className='text-center'
               >
                 년
               </option>
@@ -244,9 +296,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
             >
               <option
                 value=''
-                disabled
-                hidden
-                selected
+                className='text-center'
               >
                 월
               </option>
@@ -263,9 +313,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
             >
               <option
                 value=''
-                disabled
-                hidden
-                selected
+                className='text-center'
               >
                 일
               </option>
@@ -279,11 +327,9 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
         </div>
           
         <div className="flex">
-          <label htmlFor='region' 
-            className='py-4 px-4 my-2 text-lg font-medium text-ppGray'
-          >
+          <p className='py-4 px-4 my-2 text-lg font-medium text-ppGray'>
             지역
-          </label>
+          </p>
           <select id='region' name='region' value={userInfo.region}
            onChange={handleInput}
             className='py-4 px-4 my-2 text-lg text-ppBlack'
@@ -291,9 +337,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
           >
             <option
               value=''
-              disabled
-              hidden
-              selected
+              className='text-center'
             >
               지역
             </option>
@@ -312,9 +356,9 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
               id="emailAgreeCheck"
               name="emailAgreeCheck"
               // checked={userInfo.emailAgreeCheck}
-              onChange={handleEmailAgree}
+              onChange={handleCheckbox}
               required
-              className='py-4 px-4 my-2'
+              className='py-4 px-4 my-2 content-center'
             />
             <label htmlFor="emailAgreeCheck"
             className='p-2'>이메일 수신 동의</label>
@@ -324,21 +368,21 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
               type="checkbox"
               id="marketingAgreeCheck"
               name="marketingAgreeCheck"
-              onChange={handleEmailAgree}
+              onChange={handleCheckbox}
             />
             <label htmlFor="marketingAgreeCheck"
             className='p-2'>마케팅 정보 수신 동의</label>
           </div>
         </div>
-        <Link to={'/login'}>
+
           <button
             type='button'
             className='rounded w-full py-4 px-4 text-lg font-bold text-center bg-ppBlue my-6 text-ppWhite'
-            onClick={handleClick}
+            onClick={handleClickSubmit}
           >
             제출
           </button>
-        </Link>
+
       </form>   
     </div>
 
