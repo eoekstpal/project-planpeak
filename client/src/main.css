@@ -1,7 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #999; 
+    outline: none;
+    cursor: pointer;
+    position: relative; 
+  }
+  
+  input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #007bff; 
+    margin: 0; 
+    position: absolute; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+  }
+  
 @font-face {
   font-family: 'Pretendard';
   font-weight: 100;
@@ -101,3 +127,8 @@
       url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.ttf') format("truetype");
   font-display: swap;
 }
+
+.content {max-width: 1194px; margin: 0 auto;}
+.SideNavCont {display: flex; max-width: 1194px; margin: 0 auto;}
+.SideNavCont nav {width: 20%;}
+.SideNavCont nav + .container {width: 80%; padding: 40px 32px;}
