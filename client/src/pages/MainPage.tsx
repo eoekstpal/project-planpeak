@@ -112,22 +112,22 @@ const MainPage = () => {
           </ul>
           <div className="flex">
             <Chip name="운동" />
-            <Chip name="운동" />
-            <Chip name="운동" />
-            <Chip name="운동" />
-            <Chip name="운동" />
-            <Chip name="운동" />
-            <Chip name="운동" />
-            <Chip name="운동" />
+            <Chip name="자기계발" />
+            <Chip name="아웃도어/여행" />
+            <Chip name="독서/인문학" />
+            <Chip name="음악/악기" />
+            <Chip name="문화/예술" />
+            <Chip name="스터디" />
+            <Chip name="N잡" />
           </div>
 
           <span className="mt-10 overflow-hidden border border-solid border-ppVeryLightGray rounded-full hover:border-transparent hover:bg-ppBlue">
-            {/* <Link
+            {<Link
               to="/"
               className="block py-2 px-3 text-ppVeryLightGray hover:text-white font-['Pretendard']"
             >
               더 많은 카테고리 보기
-            </Link> */}
+            </Link>}
           </span>
         </div>
         {/* <div className="mt-10 flex flex-col items-center justify-center bg-[#d9d9d9]">
