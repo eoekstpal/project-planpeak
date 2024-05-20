@@ -13,7 +13,7 @@ function AdminNav() {
             <Link to={'/admin/meetingname/messagesetting'}>안내메세지 관리</Link>
           </li>
           <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/admin/challenge/manage'}>출결 및 과제 관리</Link>
+            출결 및 과제 관리
           </li>
         </ul>
       </nav>

@@ -10,13 +10,13 @@ function UserNav() {
             <Link to={'/user/meetinglist'}>내가 참여 중인 모임</Link>
           </li>
           <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>내가 찜한 모임</Link>
+            내가 찜한 모임
           </li>
           <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>내가 찜한 모임장</Link>
+            내가 찜한 모임장
           </li>
           <li className="text-ppGray leading-10 hover:text-ppBlue">
-            <Link to={'/'}>모든 모임 둘러보기</Link>
+            <Link to={'/allmeetinglist'}>모든 모임 둘러보기</Link>
           </li>
         </ul>
       </nav>

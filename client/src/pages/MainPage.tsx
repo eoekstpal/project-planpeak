@@ -82,7 +82,7 @@ const MainPage = () => {
     };
   }, []);
   return (
-    <div>
+    <div className='content'>
       {' '}
       <div className="flex flex-col w-full md:w-480 h-auto md:h-125 p-4 md:p-0">
         <div className="w-full md:w-107 h-auto md:h-45 bg-ppBlue text-center mt-2">
@@ -94,12 +94,12 @@ const MainPage = () => {
             클래스, 모임 관리를 효율적이고 간편하게 해드릴게요!
           </p>
           <br />{' '}
-          <Link to="/user/meetinglist/meet-list">
+          <Link to="allmeetinglist">
             <button className="border rounded w-[150px] bg-white-500 p-5 mb-5 text-xl text-white">
               모임 둘러보기
             </button>
           </Link>{' '}
-          <Link to="/user/meetinglist/create-meet">
+          <Link to="/createmeeting">
             <button className="border rounded w-[150px] bg-white-500 p-5 mb-5 text-xl text-white">
               모임 생성하기
             </button>

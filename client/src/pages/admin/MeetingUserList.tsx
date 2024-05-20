@@ -26,7 +26,7 @@ function MeetingUserList() {
       <AdminNav />
       <div className="container p-8">
         <div className="flex py-6 px-4">
-          <span className="w-14 h-14 mx-2 my-3">
+          <span className="w-14 h-14 mx-2 my-3 bg-slate-200">
             <img src="" alt="" />
           </span>
           <div className="p-2">

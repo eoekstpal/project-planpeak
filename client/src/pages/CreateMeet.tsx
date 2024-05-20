@@ -272,9 +272,9 @@ function CreateMeet() {
   };
 
   return (
-    <div className="p-4">
+    <div className="w-1/2 py-20 content">
       {/* <h1 className="text-xl">모임생성하기</h1> */}
-      <h2 className="text-2xl font-bold mb-2">모임생성하기</h2> <br /> <br />
+      <h2 className="text-4xl font-bold mb-10 text-center text-ppBlack">모임생성하기</h2> <br /> <br />
       <UploadImage onImageUpload={handleImageUpload} />
       <MeetCategoryChips onSelectedChipsChange={handleCategory} />
       <OnelineInput title={'모임 이름'} onInputChange={handleNameInputChange} />

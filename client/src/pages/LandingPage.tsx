@@ -73,7 +73,7 @@ function renderItems(items: Event[]) {
 
 function LandingPage() {
   return (
-    <div>
+    <div className='content'>
       <div className="relative text-center">
         <img className="w-full mx-w-md mx-auto" src={Image1} alt="Landing Page1" />
         <h1
@@ -83,7 +83,7 @@ function LandingPage() {
           간편한 모임관리 <br /> 지금 시작해보세요
         </h1>
         <span
-          className="text-ppWhite block text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="w-full text-ppWhite block text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           style={{ marginTop: '12vw', fontSize: '2vw' }}
         >
           클래스 모임 관리를 효율적이고 간편하게 해드릴게요!
@@ -98,20 +98,20 @@ function LandingPage() {
           일일이 알림 보내기 <br /> 귀찮으시죠?
         </h1>
         <span
-          className="text-ppWhite block mt-12 absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-3/4"
+          className="w-full text-ppWhite block mt-12 absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-3/4"
           style={{ marginTop: '12vw', fontSize: '2vw' }}
         >
           이메일 자동화로 번거로운 알림 설정을 최소화 해보세요
         </span>
       </div>
-      <div className="flex flex-auto gab-4">
-        <div className="mt-10 ml-80 items-center justify-center">
-          <h1 className="text-3xl text-bold mt-10 text-center">
+      <div className="w-full flex justify-center my-40">
+        <div className="basis-1/3 mt-10 mx-10">
+          <h1 className="text-3xl text-bold mt-10 text-right">
             출석과 챌린지를 <br /> 한눈에 확인하세요
           </h1>
-          <p className="mt-2 text-bold text-ppVeryLightGray">직관적인 디자인으로 보여드립니다.</p>
+          <p className="mt-2 text-bold text-right text-ppVeryLightGray">직관적인 디자인으로 보여드립니다.</p>
         </div>
-        <div className="mt-10 mb-5 ml-5">
+        <div className="basis-2/3 mx-10">
           <CardImage src="path_to_image" title="" />
         </div>
       </div>

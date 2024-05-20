@@ -31,7 +31,7 @@ function LogIn() {
         <Link to={'/'}>
           <button
             type='button'
-            className='rounded w-full py-4 px-4 text-lg font-bold text-center bg-ppBlue my-6 text-ppWhite'
+            className='rounded w-full py-4 px-4 text-lg font-bold text-center bg-slate-300 my-6 text-ppWhite hover:bg-ppBlue'
           >
             PlanPeak 로그인
           </button>

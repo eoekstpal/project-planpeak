@@ -64,7 +64,7 @@ const events: Event[] = [
 function renderItems(items: Event[]) {
   return items.map((item) => (
     <li key={item.name} className="col text-left items-center">
-      <CardImage src={item.imageSrc} alt={item.altText || item.name} />
+      <CardImage src={'item.imageSrc'} alt={'item.altText || item.name'} />
       <span className="text-sm text-bold">{item.name}</span> <br />
       <span className="text-sm">{item.description}</span> <br />
       <span className="text-sm">{item.date}</span>
@@ -74,8 +74,8 @@ function renderItems(items: Event[]) {
 
 function AllMeetingList() {
   return (
-    <div className="flex">
-      <nav className="SideNavCount">
+    <div className="flex content">
+      {/* <nav className="SideNavCount">
         <ul className="py-7 px-4">
           <li className="text-ppBlack text-xl font-bold py-5">모임 참가하기</li>
           <li className="text-ppGray leading-10 hover:text-ppBlue">
@@ -88,7 +88,7 @@ function AllMeetingList() {
             <Link to={'/'}>모든 모임 둘러보기</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <div className="container p-8">
         <div className="flex py-6 px-4 space-between">
           <h2>모든 모임 둘러보기</h2>

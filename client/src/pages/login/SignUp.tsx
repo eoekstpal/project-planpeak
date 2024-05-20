@@ -377,7 +377,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({
 
           <button
             type='button'
-            className='rounded w-full py-4 px-4 text-lg font-bold text-center bg-ppBlue my-6 text-ppWhite'
+            className='rounded w-full py-4 px-4 text-lg font-bold text-center my-6 text-ppWhite bg-slate-300 hover:bg-ppBlue '
             onClick={handleClickSubmit}
           >
             제출

@@ -1,24 +1,25 @@
 import { Link } from 'react-router-dom';
-import Checkbox from '../../components/Common/forms/Checkbox';
-import Input from '../../components/Common/forms/Input';
-import Selectbox from '../../components/Common/forms/Selectbox';
+// import Checkbox from '../../components/Common/forms/Checkbox';
+// import Input from '../../components/Common/forms/Input';
+// import Selectbox from '../../components/Common/forms/Selectbox';
 import UserNav from '../../layouts/UserNav';
 
-const StateOPTIONS = [
-  { value: '신청완료', name: '신청완료' },
-  { value: '참여중', name: '참여중' },
-  { value: '노쇼/환불', name: '노쇼/환불' },
-  { value: '마무리안내', name: '마무리안내' },
-  { value: '기타', name: '기타' },
-];
-const MessageOPTIONS = [
-  { value: '신청안내', name: '신청안내' },
-  { value: '입금안내', name: '입금안내' },
-  { value: '일정안내', name: '일정안내' },
-  { value: '노쇼/환불안내', name: '노쇼/환불안내' },
-  { value: '챌린지 안내', name: '챌린지 안내' },
-  { value: '마무리 안내', name: '마무리 안내' },
-];
+// const StateOPTIONS = [
+//   { value: '신청완료', name: '신청완료' },
+//   { value: '참여중', name: '참여중' },
+//   { value: '노쇼/환불', name: '노쇼/환불' },
+//   { value: '마무리안내', name: '마무리안내' },
+//   { value: '기타', name: '기타' },
+// ];
+// const MessageOPTIONS = [
+//   { value: '신청안내', name: '신청안내' },
+//   { value: '입금안내', name: '입금안내' },
+//   { value: '일정안내', name: '일정안내' },
+//   { value: '노쇼/환불안내', name: '노쇼/환불안내' },
+//   { value: '챌린지 안내', name: '챌린지 안내' },
+//   { value: '마무리 안내', name: '마무리 안내' },
+// ];
+
 // const tableHeader: string[] | any = [
 //   <Checkbox></Checkbox>,
 //   '상태',
@@ -49,12 +50,7 @@ function UserMeetingList() {
       <UserNav />
       <div className="container p-8">
         <div className="flex px-2 py-4 justify-between">
-          <h2 className="text-xl font-medium">개설한 모임 목록</h2>
-          <span className={`inline-block overflow-hidden bg-ppBlue rounded`}>
-            <Link to={'/'} className="block py-2 px-3 text-white">
-              새로운 모임 만들기
-            </Link>
-          </span>
+          <h2 className="text-xl font-medium">내가 참여 중인 모임 목록</h2>
         </div>
         <ul className="my-5">
           <li className="flex px-2 py-4 border-t border-solid border-slate-300 justify-between">
@@ -67,20 +63,6 @@ function UserMeetingList() {
                 <p className="text-sm text-ppLightGray">모임 설명</p>
               </div>
             </Link>
-            <ul className="flex">
-              <li className="px-4 text-center">
-                <h4 className="mb-1 text-lg">신청자 수</h4>
-                <span className="block text-sm text-ppLightGray">00명</span>
-              </li>
-              <li className="px-4 text-center">
-                <h4 className="mb-1 text-lg">일정확인</h4>
-                <span className="block text-sm text-ppLightGray">00명</span>
-              </li>
-              <li className="px-4 text-center">
-                <h4 className="mb-1 text-lg">진행상태</h4>
-                <span className="block text-sm text-ppLightGray">진행 중</span>
-              </li>
-            </ul>
           </li>
           <li className="flex px-2 py-4 border-t border-solid border-slate-300 justify-between">
             <Link to={'/'} className="flex">
@@ -92,20 +74,6 @@ function UserMeetingList() {
                 <p className="text-sm text-ppLightGray">모임 설명</p>
               </div>
             </Link>
-            <ul className="flex">
-              <li className="px-4 text-center">
-                <h4 className="mb-1 text-lg">신청자 수</h4>
-                <span className="block text-sm text-ppLightGray">00명</span>
-              </li>
-              <li className="px-4 text-center">
-                <h4 className="mb-1 text-lg">일정확인</h4>
-                <span className="block text-sm text-ppLightGray">00명</span>
-              </li>
-              <li className="px-4 text-center">
-                <h4 className="mb-1 text-lg">진행상태</h4>
-                <span className="block text-sm text-ppLightGray">진행 중</span>
-              </li>
-            </ul>
           </li>
         </ul>
       </div>
