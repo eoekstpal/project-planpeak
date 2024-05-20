@@ -1,5 +1,5 @@
-import Card from '../Card';
-import PaginatedTable from '../PaginatedTable';
+// import Card from '../Card';
+// import PaginatedTable from '../PaginatedTable';
 import BtnBorder from '../buttons/BtnBorder';
 import BtnLarge from '../buttons/BtnLarge';
 import BtnMedium from '../buttons/BtnMedium';
@@ -18,10 +18,10 @@ function AllCompoTest() {
     { value: 'orange', name: '오렌지' },
   ];
   
-  const dummyData: string[][] = [
-    ["인영", "010-4222-6836", "inyoung@example.com"],
-    ["찬영", "010-4222-6836", "chanyoung@example.com"],
-  ];
+  // const dummyData: string[][] = [
+  //   ["인영", "010-4222-6836", "inyoung@example.com"],
+  //   ["찬영", "010-4222-6836", "chanyoung@example.com"],
+  // ];
 
   return (
     <>
@@ -41,7 +41,7 @@ function AllCompoTest() {
         <BtnLarge bgColor={'bg-ppBlue'} textColor={'text-ppBlue'} text={'안녕하세요'} />
         <BtnBorder bdColor={'border-ppBlue'} textColor={'text-ppBlue'} text={'안녕하세요'} />
       </div>
-      <div>
+      {/* <div>
         <Card
           title={'title'}
           imageUrl={'/vite.svg'}
@@ -52,7 +52,7 @@ function AllCompoTest() {
           info={'infolskdfjlkasjlfkjsdkfksdjfksdjfsdlkfjlkdjfkldj'}
         />
         <PaginatedTable data={dummyData} />
-      </div>
+      </div> */}
     </>
   );
 }

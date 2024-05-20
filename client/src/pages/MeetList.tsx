@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { useEffect } from 'react';
+// import axios from 'axios';
+// import { useEffect } from 'react';
 import Card from '../components/common/Card';
 
 function MeetList() {
@@ -8,16 +8,16 @@ function MeetList() {
     { id: 1, title: 'title2', description: 'description2' },
     { id: 1, title: 'title3', description: 'description3' },
   ];
-  useEffect(() => {
-    const fetchMeetList = async () => {
-      try {
-        const res = await axios.get('');
-        console.log(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  }, []);
+  // useEffect(() => {
+  //   const fetchMeetList = async () => {
+  //     try {
+  //       const res = await axios.get('');
+  //       console.log(res.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  // }, []);
   return (
     <>
       {' '}

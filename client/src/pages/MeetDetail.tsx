@@ -2,9 +2,10 @@ import { useRef, useState } from 'react';
 // import axios from 'axios';
 import Chip from '../components/create-meet/Chip';
 import CalendarComponent from '../components/common/Calendar';
-import BtnMedium from '../components/common/buttons/BtnMedium';
+
 import '@tabler/icons-react';
 import { IconBrandInstagram, IconHeart, IconShare } from '@tabler/icons-react';
+import BtnMedium from '../components/common/buttons/BtnMedium';
 function MeetDetail() {
   const [formData, setFormData] = useState(null);
   //   const [review, setReview] = useState([]);
@@ -90,7 +91,7 @@ function MeetDetail() {
       <div>
         {formData && (
           <div className="mb-4">
-            {Object.keys(formData).map((key) => (
+            {Object.keys(setFormData).map((key) => (
               <p key={key} className="mb-1">
                 {key}: {formData[key]}
               </p>

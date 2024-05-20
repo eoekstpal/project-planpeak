@@ -1,9 +1,10 @@
+import BtnMedium from '../../../components/common/buttons/BtnMedium';
+import Checkbox from '../../../components/common/forms/Checkbox';
+import Input from '../../../components/common/forms/Input';
 import AdminNav from '../../../layouts/AdminNav';
 import { Link } from 'react-router-dom';
-import BtnSmall from '../../../components/Common/buttons/BtnSmall';
-import Input from '../../../components/Common/forms/Input';
-import Checkbox from '../../../components/Common/forms/Checkbox';
-import BtnMedium from '../../../components/Common/buttons/BtnMedium';
+// import BtnSmall from '../../../components/Common/buttons/BtnSmall';
+
 
 function ManageChallengePersonal() {
   return (

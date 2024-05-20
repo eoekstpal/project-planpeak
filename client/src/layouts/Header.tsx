@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
+  // const [userName, setUserName] = useState('');
 
   const [showSubMenu, setShowSubMenu] = useState(false);
 
@@ -89,7 +89,7 @@ function Header() {
             <>
               <span className="overflow-hidden rounded-full">
                 <Link to="/" className="block py-2 px-3 hover:text-white">
-                  {userName}
+                  {/* {userName} */}
                 </Link>
               </span>
               <span className="overflow-hidden rounded-full">
@@ -159,7 +159,7 @@ function Header() {
             <>
               <span className="overflow-hidden">
                 <Link to="/" className="block py-2 px-3 hover:text-ppBlue">
-                  {userName}
+                  {/* {userName} */}
                 </Link>
               </span>
               <span className="overflow-hidden">

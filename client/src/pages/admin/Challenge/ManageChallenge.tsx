@@ -1,6 +1,7 @@
+import BtnSmall from '../../../components/common/buttons/BtnSmall';
 import AdminNav from '../../../layouts/AdminNav';
 import { Link } from 'react-router-dom';
-import BtnSmall from '../../../components/Common/buttons/BtnSmall';
+
 
 function ManageChallenge() {
   return (

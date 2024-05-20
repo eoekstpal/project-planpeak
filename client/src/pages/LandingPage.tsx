@@ -63,7 +63,7 @@ const events: Event[] = [
 function renderItems(items: Event[]) {
   return items.map((item) => (
     <li key={item.name} className="col text-left items-center">
-      <CardImage src={item.imageSrc} alt={item.altText || item.name} />
+      <CardImage title="" width='full' content='card' info='card'/>
       <span className="text-sm text-bold">{item.name}</span> <br />
       <span className="text-sm">{item.description}</span> <br />
       <span className="text-sm">{item.date}</span>
@@ -112,7 +112,7 @@ function LandingPage() {
           <p className="mt-2 text-bold text-right text-ppVeryLightGray">직관적인 디자인으로 보여드립니다.</p>
         </div>
         <div className="basis-2/3 mx-10">
-          <CardImage src="path_to_image" title="" />
+          <CardImage title="" width='full' content='card' info='card'/>
         </div>
       </div>
       <div className="mt-10 mb-10">

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import CardImage from '../components/common/Card';
 import Search from '../components/common/forms/Search';
 import BtnLarge from '../components/common/buttons/BtnLarge';
@@ -64,7 +64,7 @@ const events: Event[] = [
 function renderItems(items: Event[]) {
   return items.map((item) => (
     <li key={item.name} className="col text-left items-center">
-      <CardImage src={'item.imageSrc'} alt={'item.altText || item.name'} />
+      <CardImage  title={'title'} content={'description'} info="info" />
       <span className="text-sm text-bold">{item.name}</span> <br />
       <span className="text-sm">{item.description}</span> <br />
       <span className="text-sm">{item.date}</span>

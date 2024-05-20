@@ -1,59 +1,59 @@
 import { Link } from 'react-router-dom';
-import CardImage from '../components/common/Card';
-import { useEffect } from 'react';
-import axios from 'axios';
+// import CardImage from '../components/common/Card';
+// import { useEffect } from 'react';
+// import axios from 'axios';
 import Chip from '../components/create-meet/Chip';
 
-interface Category {
-  name: string;
-  imageSrc: string;
-  altText: string;
-}
+// interface Category {
+//   name: string;
+//   imageSrc: string;
+//   altText: string;
+// }
 
-interface Event {
-  imageSrc: string;
-  name: string;
-  date: string;
-  description: string;
-}
+// interface Event {
+//   imageSrc: string;
+//   name: string;
+//   date: string;
+//   description: string;
+// }
 
-const categories: Category[] = [
-  { name: '자기계발', imageSrc: 'path_to_image', altText: '자기계발' },
-  { name: '운동', imageSrc: 'path_to_image', altText: '운동' },
-  { name: '음악', imageSrc: 'path_to_image', altText: '음악' },
-  { name: '아웃도어', imageSrc: 'path_to_image', altText: '아웃도어' },
-  { name: '클래스/강의', imageSrc: 'path_to_image', altText: '클래스/강의' },
-  { name: '문화/예술', imageSrc: 'path_to_image', altText: '문화/예술' },
-  { name: 'N잡', imageSrc: 'path_to_image', altText: 'N잡' },
-  { name: '스터디', imageSrc: 'path_to_image', altText: '스터디' },
-];
+// const categories: Category[] = [
+//   { name: '자기계발', imageSrc: 'path_to_image', altText: '자기계발' },
+//   { name: '운동', imageSrc: 'path_to_image', altText: '운동' },
+//   { name: '음악', imageSrc: 'path_to_image', altText: '음악' },
+//   { name: '아웃도어', imageSrc: 'path_to_image', altText: '아웃도어' },
+//   { name: '클래스/강의', imageSrc: 'path_to_image', altText: '클래스/강의' },
+//   { name: '문화/예술', imageSrc: 'path_to_image', altText: '문화/예술' },
+//   { name: 'N잡', imageSrc: 'path_to_image', altText: 'N잡' },
+//   { name: '스터디', imageSrc: 'path_to_image', altText: '스터디' },
+// ];
 
-const events: Event[] = [
-  {
-    name: '커피 원데이 클래스',
-    description: '커피를 좋아하는 사람들의 모임',
-    date: '을지로, 2024. 4. 29',
-    imageSrc: 'path_to_image',
-  },
-  {
-    name: '드로잉 모임',
-    description: '그림을 그려봐요',
-    date: '을지로, 2024. 4. 29',
-    imageSrc: 'path_to_image',
-  },
-  {
-    name: '영화 평론 모임',
-    description: '영화관람 좋아 하시죠?',
-    date: '을지로, 2024. 4. 29',
-    imageSrc: 'path_to_image',
-  },
-  {
-    name: '문문문',
-    description: '달과 별을 보러 갈까요?',
-    date: '을지로, 2024. 4. 29',
-    imageSrc: 'path_to_image',
-  },
-];
+// const events: Event[] = [
+//   {
+//     name: '커피 원데이 클래스',
+//     description: '커피를 좋아하는 사람들의 모임',
+//     date: '을지로, 2024. 4. 29',
+//     imageSrc: 'path_to_image',
+//   },
+//   {
+//     name: '드로잉 모임',
+//     description: '그림을 그려봐요',
+//     date: '을지로, 2024. 4. 29',
+//     imageSrc: 'path_to_image',
+//   },
+//   {
+//     name: '영화 평론 모임',
+//     description: '영화관람 좋아 하시죠?',
+//     date: '을지로, 2024. 4. 29',
+//     imageSrc: 'path_to_image',
+//   },
+//   {
+//     name: '문문문',
+//     description: '달과 별을 보러 갈까요?',
+//     date: '을지로, 2024. 4. 29',
+//     imageSrc: 'path_to_image',
+//   },
+// ];
 
 // const renderItems = (items: Category[] | Event[]) => {
 //   return items.map((item) => (
@@ -71,16 +71,16 @@ const events: Event[] = [
 // };
 
 const MainPage = () => {
-  useEffect(() => {
-    const fetchMeetList = async () => {
-      try {
-        const res = await axios.get('api');
-        const cards = res.data; //백엔드로부터 모임 리스트 데이터 받아서 가공하여 화면에 출력
-      } catch (error) {
-        console.error(`에러메시지: ${error}`);
-      }
-    };
-  }, []);
+  // useEffect(() => {
+  //   const fetchMeetList = async () => {
+  //     try {
+  //       const res = await axios.get('api');
+  //       const cards = res.data; //백엔드로부터 모임 리스트 데이터 받아서 가공하여 화면에 출력
+  //     } catch (error) {
+  //       console.error(`에러메시지: ${error}`);
+  //     }
+  //   };
+  // }, []);
   return (
     <div className='content'>
       {' '}

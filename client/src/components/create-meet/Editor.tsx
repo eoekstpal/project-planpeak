@@ -5,8 +5,8 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
   const editorRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState<string>('');
   const [color, setColor] = useState<string>('');
-  const [image, setImage] = useState<File | null>(null);
-
+  // const [image, setImage] = useState<File | null>(null);
+  
   useEffect(() => {
     const handleChange = () => {
       if (editorRef.current) {
@@ -52,7 +52,6 @@ function BasicWYSIWYGEditor({ onContentChange }: { onContentChange: (content: st
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    setImage(file);
     const reader = new FileReader();
     reader.onload = (event: ProgressEvent<FileReader>) => {
       if (event.target && event.target.result && editorRef.current) {
