@@ -15,7 +15,7 @@ function AdminMeetingList() {
         <div className="flex px-2 py-4 justify-between">
           <h2 className="text-xl font-medium">개설한 모임 목록</h2>
           <span className={`inline-block overflow-hidden bg-ppBlue rounded`}>
-            <Link to={'/meetinglist/create-meet'} className="block py-2 px-3 text-white">
+            <Link to={'/createmeeting'} className="block py-2 px-3 text-white">
               새로운 모임 만들기
             </Link>
           </span>
