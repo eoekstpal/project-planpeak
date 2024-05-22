@@ -1,5 +1,4 @@
-// import { Link } from 'react-router-dom';
-import _React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CardImage from '../components/common/Card';
 import Search from '../components/common/forms/Search';
 import BtnLarge from '../components/common/buttons/BtnLarge';
