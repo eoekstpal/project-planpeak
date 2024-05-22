@@ -4,7 +4,7 @@ function BtnLarge(props: any) {
       <button
         onClick={props.onClick}
         type="button"
-        className="w-full py-4 px-4 text-lg text-white font-bold text-center"
+        className="w-full py-4 px-4 text-lg text-white font-bold text-center hover:bg-blue-600 hover:text-ppwhite"
       >
         {props.text}
       </button>
