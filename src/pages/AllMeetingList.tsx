@@ -1,5 +1,5 @@
 // import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CardImage from '../components/common/Card';
 import Search from '../components/common/forms/Search';
 import BtnLarge from '../components/common/buttons/BtnLarge';
@@ -88,7 +88,7 @@ function renderItems(items: Event[]) {
 
 function AllMeetingList() {
 
-  const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
+  const [_filteredEvents, setFilteredEvents] = useState<Event[]>(events);
   const [selectedTag, setSelectedTag] = useState<string>('');
 
   useEffect(() => {

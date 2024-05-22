@@ -2,7 +2,7 @@ import Textarea from "../common/forms/Textarea";
 
 interface ApplyMeetingProps {}
 
-function ApplyMeeting (props: ApplyMeetingProps) {
+function ApplyMeeting (_props: ApplyMeetingProps) {
 
   const selectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checkboxes = document.getElementsByName('confirm') as NodeListOf<HTMLInputElement>;
