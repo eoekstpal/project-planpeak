@@ -1,4 +1,5 @@
 // import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import CardImage from '../components/common/Card';
 import Search from '../components/common/forms/Search';
 import BtnLarge from '../components/common/buttons/BtnLarge';
@@ -61,6 +62,19 @@ const events: Event[] = [
   },
 ];
 
+const tags = [
+  '#자기계발',
+  '#운동',
+  '#아웃도어/여행',
+  '#독서/인문학',
+  '#음악/악기',
+  '#문화/예술',
+  '#스터디',
+  '#클래스/강의',
+  '#N잡',
+  '#기타',
+];
+
 function renderItems(items: Event[]) {
   return items.map((item) => (
     <li key={item.name} className="col text-left items-center">
@@ -73,6 +87,25 @@ function renderItems(items: Event[]) {
 }
 
 function AllMeetingList() {
+
+  const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
+  const [selectedTag, setSelectedTag] = useState<string>('');
+
+  useEffect(() => {
+    if (selectedTag) {
+      // 태그에 맞는 이벤트 필터링
+      const filtered = events.filter(event => event.description.includes(selectedTag));
+      setFilteredEvents(filtered);
+    } else {
+      // 태그가 선택되지 않았을 때는 모든 이벤트 표시
+      setFilteredEvents(events);
+    }
+  }, [selectedTag]);
+
+  const handleTagClick = (tag: string) => {
+    setSelectedTag(tag);
+  };
+
   return (
     <div className="flex content">
       {/* <nav className="SideNavCount">
@@ -97,28 +130,15 @@ function AllMeetingList() {
         <div className="flex text-bold text-2xl px-4">
           <h2>태그 검색</h2>
           <ul className="grid grid-cols-5 gap-5 ml-40">
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#자기계발'} />
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#운동'} />
-            <BtnLarge
-              textColor={'text-ppLightGray'}
-              bgColor={'bg-[#d9d9d9]'}
-              text={'#아웃도어/여행'}
-            />
-            <BtnLarge
-              textColor={'text-ppLightGray'}
-              bgColor={'bg-[#d9d9d9]'}
-              text={'#독서/인문학'}
-            />
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#음악/악기'} />
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#문화/예술'} />
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#스터디'} />
-            <BtnLarge
-              textColor={'text-ppLightGray'}
-              bgColor={'bg-[#d9d9d9]'}
-              text={'#클래스/강의'}
-            />
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#N잡'} />
-            <BtnLarge textColor={'text-ppLightGray'} bgColor={'bg-[#d9d9d9]'} text={'#기타'} />
+          {tags.map((tag) => (
+              <BtnLarge 
+                key={tag}
+                textColor={'text-ppLightGray'} 
+                bgColor={'bg-[#d9d9d9]'} 
+                text={'#자기계발'} 
+                onClick={() => handleTagClick(tag)}
+              />
+          ))}
           </ul>
         </div>
         <div>
